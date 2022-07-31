@@ -69,8 +69,8 @@ File: scss
  *	7. Widgets
  *	8. Custom Templates
  */
-/******************* 
-Global Styles 
+/*******************
+Global Styles
 *******************/
 * {
   outline: none; }
@@ -94,7 +94,7 @@ a:hover, a:focus {
 a.link {
   color: #263238; }
   a.link:hover, a.link:focus {
-    color: #009efb; }
+    color: #b80000; }
 
 .img-responsive {
   width: 100%;
@@ -169,7 +169,7 @@ html body .db {
 Blockquote
 *******************/
 html body blockquote {
-  border-left: 5px solid #009efb;
+  border-left: 5px solid #b80000;
   border: 1px solid rgba(120, 130, 140, 0.13);
   padding: 15px; }
 
@@ -465,7 +465,7 @@ html body .text-dark {
   color: #263238; }
 
 html body .text-themecolor {
-  color: #009efb; }
+  color: #b80000; }
 
 /*******************
 Background Colors
@@ -489,7 +489,7 @@ html body .bg-megna {
   background-color: #00897b; }
 
 html body .bg-theme {
-  background-color: #009efb; }
+  background-color: #b80000; }
 
 html body .bg-inverse {
   background-color: #2f3d4a; }
@@ -681,8 +681,8 @@ Pagination
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: #009efb;
-  border-color: #009efb; }
+  background-color: #b80000;
+  border-color: #b80000; }
 
 .pager li > a,
 .pager li > span {
@@ -989,14 +989,14 @@ Buttons
 
 .btn-themecolor,
 .btn-themecolor.disabled {
-  background: #009efb;
+  background: #b80000;
   color: #ffffff;
-  border: 1px solid #009efb; }
+  border: 1px solid #b80000; }
   .btn-themecolor:hover,
   .btn-themecolor.disabled:hover {
-    background: #009efb;
+    background: #b80000;
     opacity: 0.7;
-    border: 1px solid #009efb; }
+    border: 1px solid #b80000; }
   .btn-themecolor.active, .btn-themecolor:focus,
   .btn-themecolor.disabled.active,
   .btn-themecolor.disabled:focus {
@@ -1537,7 +1537,7 @@ ul.list-style-none {
       display: block;
       text-decoration: none; }
       ul.list-style-none li a:hover {
-        color: #009efb; }
+        color: #b80000; }
 
 /*******************
 dropdown-item
@@ -1767,7 +1767,7 @@ File: scss
         color: #263238; }
         .topbar ul.dropdown-user li a:hover {
           background: #f2f4f8;
-          color: #009efb;
+          color: #b80000;
           text-decoration: none; }
 
 .search-box .app-search {
@@ -1910,7 +1910,7 @@ File: scss
     color: #ffffff;
     text-transform: uppercase;
     font-size: 15px;
-    background: #009efb; }
+    background: #b80000; }
     .right-sidebar .rpanel-title span {
       float: right;
       cursor: pointer;
@@ -2255,7 +2255,7 @@ ul.list-icons {
     ul.list-icons li a {
       color: #263238; }
       ul.list-icons li a:hover {
-        color: #009efb; }
+        color: #b80000; }
     ul.list-icons li i {
       font-size: 13px;
       padding-right: 8px; }
@@ -2379,7 +2379,7 @@ html body #visitor .c3-chart-arcs-title {
 .stylish-table tbody tr {
   border-left: 4px solid #ffffff; }
   .stylish-table tbody tr:hover, .stylish-table tbody tr.active {
-    border-left: 4px solid #009efb; }
+    border-left: 4px solid #b80000; }
 
 .stylish-table tbody td {
   vertical-align: middle; }
@@ -2612,10 +2612,10 @@ widget-chart-page product review
   padding: 15px 20px;
   color: #263238; }
   .profile-tab li a.nav-link.active, .customtab li a.nav-link.active {
-    border-bottom: 2px solid #009efb;
-    color: #009efb; }
+    border-bottom: 2px solid #b80000;
+    color: #b80000; }
   .profile-tab li a.nav-link:hover, .customtab li a.nav-link:hover {
-    color: #009efb; }
+    color: #b80000; }
 
 /*==============================================================
 Form addons page
@@ -2633,7 +2633,7 @@ Form addons page
   color: #263238;
   white-space: nowrap; }
   .bootstrap-select .dropdown-menu li a:hover, .bootstrap-select .dropdown-menu li a:focus {
-    color: #009efb;
+    color: #b80000;
     background: #f2f4f8; }
 
 .bootstrap-select .show > .dropdown-menu {
@@ -2673,10 +2673,10 @@ Form Material page
   transition: background 0s ease-out 0s; }
 
 .form-material .form-control, .form-material .form-control.focus, .form-material .form-control:focus {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-  background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-  background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
-  background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#b80000), to(#b80000)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
+  background-image: -webkit-linear-gradient(#b80000, #b80000), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
+  background-image: -o-linear-gradient(#b80000, #b80000), -o-linear-gradient(#d9d9d9, #d9d9d9);
+  background-image: linear-gradient(#b80000, #b80000), linear-gradient(#d9d9d9, #d9d9d9);
   border: 0 none;
   border-radius: 0;
   -webkit-box-shadow: none;
@@ -2699,7 +2699,7 @@ Form Material page
   padding-left: 0px;
   border-bottom: 1px solid #d9d9d9; }
   .form-control-line .form-control:focus {
-    border-bottom: 1px solid #009efb; }
+    border-bottom: 1px solid #b80000; }
 
 /*******************/
 /*Floating Label*/
@@ -2757,7 +2757,7 @@ Form Material page
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #009efb;
+  background: #b80000;
   -o-transition: 0.2s ease all;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
@@ -2892,10 +2892,10 @@ table th {
   font-weight: 400; }
 
 .daterangepicker td.active, .daterangepicker td.active:hover {
-  background-color: #009efb; }
+  background-color: #b80000; }
 
 .datepicker table tr td.today, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today:hover {
-  background: #009efb;
+  background: #b80000;
   color: #ffffff; }
 
 .datepicker td, .datepicker th {
@@ -3218,7 +3218,7 @@ Table-Data Table
   .dt-buttons .dt-button {
     padding: 5px 15px;
     border-radius: 4px;
-    background: #009efb;
+    background: #b80000;
     color: #ffffff;
     margin-right: 3px; }
     .dt-buttons .dt-button:hover {
@@ -3231,10 +3231,10 @@ Table-Data Table
   margin-top: 10px; }
   .dataTables_length select {
     border: 0;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-    background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-    background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
-    background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#b80000), to(#b80000)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
+    background-image: -webkit-linear-gradient(#b80000, #b80000), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: -o-linear-gradient(#b80000, #b80000), -o-linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: linear-gradient(#b80000, #b80000), linear-gradient(#d9d9d9, #d9d9d9);
     background-size: 0 2px, 100% 1px;
     background-repeat: no-repeat;
     background-position: center bottom, center calc(100% - 1px);
@@ -3245,10 +3245,10 @@ Table-Data Table
     padding-bottom: 5px; }
     .dataTables_length select:focus {
       outline: none;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-      background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-      background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
-      background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#b80000), to(#b80000)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
+      background-image: -webkit-linear-gradient(#b80000, #b80000), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
+      background-image: -o-linear-gradient(#b80000, #b80000), -o-linear-gradient(#d9d9d9, #d9d9d9);
+      background-image: linear-gradient(#b80000, #b80000), linear-gradient(#d9d9d9, #d9d9d9);
       background-size: 100% 2px, 100% 1px;
       -webkit-box-shadow: none;
       box-shadow: none;
@@ -3261,10 +3261,10 @@ Table-Data Table
   margin-top: 10px; }
   .dataTables_filter input {
     border: 0;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-    background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-    background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
-    background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#b80000), to(#b80000)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
+    background-image: -webkit-linear-gradient(#b80000, #b80000), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: -o-linear-gradient(#b80000, #b80000), -o-linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: linear-gradient(#b80000, #b80000), linear-gradient(#d9d9d9, #d9d9d9);
     background-size: 0 2px, 100% 1px;
     background-repeat: no-repeat;
     background-position: center bottom, center calc(100% - 1px);
@@ -3279,10 +3279,10 @@ Table-Data Table
     margin-left: 10px; }
     .dataTables_filter input:focus {
       outline: none;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-      background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-      background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
-      background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#b80000), to(#b80000)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
+      background-image: -webkit-linear-gradient(#b80000, #b80000), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
+      background-image: -o-linear-gradient(#b80000, #b80000), -o-linear-gradient(#d9d9d9, #d9d9d9);
+      background-image: linear-gradient(#b80000, #b80000), linear-gradient(#d9d9d9, #d9d9d9);
       background-size: 100% 2px, 100% 1px;
       -webkit-box-shadow: none;
       box-shadow: none;
@@ -3337,8 +3337,8 @@ table.dataTable thead .sorting:after {
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
   color: #ffffff !important;
-  border: 1px solid #009efb;
-  background-color: #009efb; }
+  border: 1px solid #b80000;
+  background-color: #b80000; }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
@@ -3352,8 +3352,8 @@ table.dataTable thead .sorting:after {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
   color: white;
-  border: 1px solid #009efb;
-  background-color: #009efb; }
+  border: 1px solid #b80000;
+  background-color: #b80000; }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
   outline: none;
@@ -3392,10 +3392,10 @@ Table- Footable
 ******************/
 #demo-show-entries {
   border: 0;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-  background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-  background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
-  background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#b80000), to(#b80000)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
+  background-image: -webkit-linear-gradient(#b80000, #b80000), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
+  background-image: -o-linear-gradient(#b80000, #b80000), -o-linear-gradient(#d9d9d9, #d9d9d9);
+  background-image: linear-gradient(#b80000, #b80000), linear-gradient(#d9d9d9, #d9d9d9);
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
   background-position: center bottom, center calc(100% - 1px);
@@ -3407,10 +3407,10 @@ Table- Footable
   color: #263238; }
   #demo-show-entries:focus {
     outline: none;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-    background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-    background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
-    background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#b80000), to(#b80000)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
+    background-image: -webkit-linear-gradient(#b80000, #b80000), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: -o-linear-gradient(#b80000, #b80000), -o-linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: linear-gradient(#b80000, #b80000), linear-gradient(#d9d9d9, #d9d9d9);
     background-size: 100% 2px, 100% 1px;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3420,10 +3420,10 @@ Table- Footable
 
 #demo-input-search2 {
   border: 0;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-  background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-  background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
-  background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#b80000), to(#b80000)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
+  background-image: -webkit-linear-gradient(#b80000, #b80000), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
+  background-image: -o-linear-gradient(#b80000, #b80000), -o-linear-gradient(#d9d9d9, #d9d9d9);
+  background-image: linear-gradient(#b80000, #b80000), linear-gradient(#d9d9d9, #d9d9d9);
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
   background-position: center bottom, center calc(100% - 1px);
@@ -3439,10 +3439,10 @@ Table- Footable
   color: #263238; }
   #demo-input-search2:focus {
     outline: none;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-    background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-    background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
-    background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#b80000), to(#b80000)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
+    background-image: -webkit-linear-gradient(#b80000, #b80000), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: -o-linear-gradient(#b80000, #b80000), -o-linear-gradient(#d9d9d9, #d9d9d9);
+    background-image: linear-gradient(#b80000, #b80000), linear-gradient(#d9d9d9, #d9d9d9);
     background-size: 100% 2px, 100% 1px;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3622,7 +3622,7 @@ Bootstrap Switch
 .onoffswitch-inner:before {
   content: "ON";
   padding-left: 27px;
-  background-color: #1e88e5;
+  background-color: #b80000;
   color: #FFFFFF; }
 
 .onoffswitch-inner:after {
@@ -3641,7 +3641,7 @@ Bootstrap Switch
   top: 0;
   bottom: 0;
   right: 56px;
-  border: 2px solid #1e88e5;
+  border: 2px solid #b80000;
   border-radius: 20px;
   -webkit-transition: all 0.3s ease-in 0s;
   -o-transition: all 0.3s ease-in 0s;
@@ -3657,7 +3657,7 @@ Bootstrap Switch
 Date paginator page
 ******************/
 .dp-selected[style] {
-  background-color: #009efb !important; }
+  background-color: #b80000 !important; }
 
 .datepaginator-sm .pagination li a, .datepaginator-lg .pagination li a, .datepaginator .pagination li a {
   padding: 0 5px;
@@ -3707,7 +3707,7 @@ Vertical tabs
     vertical-align: top; }
 
 .tabs-vertical li .nav-link.active, .tabs-vertical li .nav-link:hover, .tabs-vertical li .nav-link.active:focus {
-  background: #009efb;
+  background: #b80000;
   border: 0px;
   color: #ffffff; }
 
@@ -3715,9 +3715,9 @@ Vertical tabs
 .customvtab .tabs-vertical li .nav-link.active, .customvtab .tabs-vertical li .nav-link:hover, .customvtab .tabs-vertical li .nav-link:focus {
   background: #ffffff;
   border: 0px;
-  border-right: 2px solid #009efb;
+  border-right: 2px solid #b80000;
   margin-right: -1px;
-  color: #009efb; }
+  color: #b80000; }
 
 .tabcontent-border {
   border: 1px solid #ddd;
@@ -3728,11 +3728,11 @@ Vertical tabs
   margin-right: 3px;
   color: #263238; }
   .customtab2 li a.nav-link.active {
-    background: #009efb;
+    background: #b80000;
     color: #ffffff; }
   .customtab2 li a.nav-link:hover {
     color: #ffffff;
-    background: #009efb; }
+    background: #b80000; }
 
 /*******************
 Progress bar
@@ -3808,8 +3808,8 @@ list and media
   background: #f2f4f8; }
 
 .list-group-item.active, .list-group .list-group-item.active:hover {
-  background: #009efb;
-  border-color: #009efb; }
+  background: #b80000;
+  border-color: #b80000; }
 
 .list-group-item.disabled {
   color: #99abb4;
@@ -3838,7 +3838,7 @@ User card page
     .el-element-overlay .el-card-item .el-card-content a {
       color: #263238; }
       .el-element-overlay .el-card-item .el-card-content a:hover {
-        color: #009efb; }
+        color: #b80000; }
   .el-element-overlay .el-card-item .el-overlay-1 {
     width: 100%;
     height: 100%;
@@ -3886,8 +3886,8 @@ User card page
           color: #ffffff;
           padding: 12px 15px 10px; }
           .el-element-overlay .el-card-item .el-overlay-1 .el-info > li a:hover {
-            background: #009efb;
-            border-color: #009efb; }
+            background: #b80000;
+            border-color: #b80000; }
   .el-element-overlay .el-card-item .el-overlay {
     width: 100%;
     height: 100%;
@@ -4051,13 +4051,13 @@ Horizontal Timeline page
 ******************/
 .cd-horizontal-timeline .events a {
   padding-bottom: 6px;
-  color: #009efb; }
+  color: #b80000; }
 
 .cd-horizontal-timeline .filling-line, .cd-horizontal-timeline .events a.selected::after {
-  background: #009efb; }
+  background: #b80000; }
 
 .cd-horizontal-timeline .events a.selected::after {
-  border-color: #009efb; }
+  border-color: #b80000; }
 
 .myadmin-dd .dd-list .dd-item .dd-handle {
   background: #ffffff;
@@ -4219,8 +4219,8 @@ ribbons page
   height: 0;
   content: '';
   border: 30px solid transparent;
-  border-top-color: #009efb;
-  border-left-color: #009efb; }
+  border-top-color: #b80000;
+  border-left-color: #b80000; }
 
 .ribbon-corner.ribbon-right:before {
   right: 0;
@@ -4245,15 +4245,15 @@ ribbons page
   padding: 0 10px 6px 10px; }
 
 .ribbon-custom {
-  background: #009efb; }
+  background: #b80000; }
 
 .ribbon-bookmark.ribbon-right.ribbon-custom:before {
-  border-right-color: #009efb;
+  border-right-color: #b80000;
   border-left-color: transparent; }
 
 .ribbon-bookmark.ribbon-vertical-l.ribbon-custom:before,
 .ribbon-bookmark.ribbon-vertical-r.ribbon-custom:before {
-  border-right-color: #009efb;
+  border-right-color: #b80000;
   border-bottom-color: transparent; }
 
 .ribbon-primary {
@@ -4428,8 +4428,8 @@ ribbons page
 session ideal timeout page
 ******************/
 #idletimeout {
-  background: #009efb;
-  border: 3px solid #009efb;
+  background: #b80000;
+  border: 3px solid #b80000;
   color: #fff;
   font-family: arial, sans-serif;
   text-align: center;
@@ -4598,7 +4598,7 @@ Stylish tooltip
   bottom: 100%;
   border-radius: 50%;
   text-align: center;
-  background: #009efb;
+  background: #b80000;
   color: #ffffff;
   opacity: 0;
   margin-bottom: 20px;
@@ -4759,7 +4759,7 @@ Stylish tooltip
     display: block; }
 
 .tooltip-text3 {
-  border-bottom: 10px solid #009efb;
+  border-bottom: 10px solid #b80000;
   overflow: hidden;
   -webkit-transform: scale3d(0, 1, 1);
   transform: scale3d(0, 1, 1);
@@ -4790,7 +4790,7 @@ Stylish tooltip
   position: absolute;
   pointer-events: none;
   border-color: transparent;
-  border-top-color: #009efb;
+  border-top-color: #b80000;
   border-width: 10px;
   margin-left: -10px; }
 
@@ -4843,7 +4843,7 @@ Stylish tooltip
 
 a.mytooltip {
   font-weight: 500;
-  color: #009efb; }
+  color: #b80000; }
 
 .tooltip-effect-7 .tooltip-content2 {
   -webkit-transform: translate3d(0, 10px, 0);
@@ -5173,7 +5173,7 @@ Email inbox Page
     color: #263238; }
   .inbox-panel .list-group .list-group-item.active, .inbox-panel .list-group .list-group-item:hover {
     background: #f2f4f8;
-    border-left: 3px solid #009efb; }
+    border-left: 3px solid #b80000; }
 
 .inbox-center .unread td {
   font-weight: 400; }
@@ -5237,7 +5237,7 @@ Contact app Page
       display: block;
       color: #263238; }
       .list-style-none li a:hover {
-        color: #009efb; }
+        color: #b80000; }
       .list-style-none li a span {
         float: right; }
 
@@ -5407,7 +5407,7 @@ sidebar navigation
         border-radius: 4px;
         white-space: nowrap; }
         .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-          color: #1e88e5; }
+          color: #b80000; }
         .sidebar-nav ul li a.active {
           font-weight: 500;
           color: #263238; }
@@ -5437,9 +5437,9 @@ sidebar navigation
       -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
       .sidebar-nav > ul > li.active > a i {
-        color: #1e88e5; }
+        color: #b80000; }
   .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
-    color: #1e88e5; }
+    color: #b80000; }
   .sidebar-nav > ul > li > a i {
     width: 27px;
     height: 27px;
@@ -5454,7 +5454,7 @@ sidebar navigation
   .sidebar-nav > ul > li > a.active {
     font-weight: 400;
     background: #ffffff;
-    color: #1e88e5; }
+    color: #b80000; }
 
 .sidebar-nav .has-arrow {
   position: relative; }
@@ -5545,9 +5545,9 @@ When click on sidebar toggler and also for tablet
     width: 50px; }
   .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
     width: 260px;
-    background: #1e88e5;
+    background: #b80000;
     color: #ffffff;
-    border-color: #009efb; }
+    border-color: #b80000; }
     .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a i {
       color: #ffffff; }
     .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a .hide-menu {
@@ -5555,7 +5555,7 @@ When click on sidebar toggler and also for tablet
   .mini-sidebar .sidebar-nav #sidebarnav > li.active > a {
     border-color: transparent; }
     .mini-sidebar .sidebar-nav #sidebarnav > li.active > a.active {
-      border-color: #009efb; } }
+      border-color: #b80000; } }
 
 @media (max-width: 767px) {
   .mini-sidebar .left-sidebar {
@@ -5678,7 +5678,7 @@ File: scss
     .city-weather-days li i {
       display: block;
       font-size: 20px;
-      color: #009efb; }
+      color: #b80000; }
     .city-weather-days li h3 {
       font-weight: 300;
       margin-top: 5px; }
@@ -5693,7 +5693,7 @@ File: scss
     border-left: 3px solid #ffffff;
     padding: 15px; }
     .comment-widgets .comment-row:hover, .comment-widgets .comment-row.active {
-      border-color: #009efb; }
+      border-color: #b80000; }
 
 .comment-text {
   padding: 15px 15px 15px 20px; }

@@ -20,28 +20,7 @@
             white-space: nowrap;
         }
     </style>
-    <!-- You can change the theme colors from here
-
-    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script>
-
-        var pusher = new Pusher('b7e5f831a0dbf97652df', {
-            cluster: 'us2'
-        });
-/*
-        var channel = pusher.subscribe('alertaCanal');
-        channel.bind('alertaEvent', function(data) {
-            var x = document.getElementById("alerta");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            }
-        });
-*/
-    </script>
-
-    -->
-
-    <link href="{{asset('plantilla/assets/plugins/datatables/dataTables.bootstrap4.css')}}" id="theme" rel="stylesheet">
+    <link href="{{asset('plantilla/assets/plugins/DataTables2/DataTables-1.12.1/css/dataTables.bootstrap4.css')}}" id="theme" rel="stylesheet">
 
     @stack('arriba')
 </head>
@@ -356,7 +335,7 @@
 <!-- ============================================================== -->
 <script src="{{asset('plantilla/assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
 
-<script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/datatables/datatables.min.js')}}"></script>
+<script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/DataTables-1.12.1/js/jquery.dataTables.js')}}"></script>
 @stack('scripts')
 </body>
 
