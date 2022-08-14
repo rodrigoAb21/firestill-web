@@ -222,4 +222,7 @@ class Utils
         'Zambia',
         'Zimbabue'
     ];
+
+    public static $OPERACION_EXISTOSA = 'Operación realizada exitosamente.';
+    public static $OPERACION_NO_EXITOSA = 'No se pudo realizar la operación.';
 }

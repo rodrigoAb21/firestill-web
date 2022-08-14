@@ -47,7 +47,7 @@ class EquipoController extends Controller
         if ($equipo->save()){
             $direccion = public_path('img/equipos/codigos/'.$equipo->id.'.png');
             $datos = $equipo->id;
-            QRCode::text($datos)->setSize(10)->setOutfile($direccion)->png();
+            QRCode::text($datos)->setSize(8)->setOutfile($direccion)->png();
         }
 
         return redirect('imonitoreo/editarSucursal/'.$request['sucursal_id']);
