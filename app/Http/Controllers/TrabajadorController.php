@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TrabajadorRequest;
+use App\Http\Requests\TrabajadorFormRequest;
 use App\Models\Trabajador;
 use App\Utils\Utils;
 
@@ -21,9 +21,8 @@ class TrabajadorController extends Controller
         ]);
     }
 
-    public function store(TrabajadorRequest $request)
+    public function store(TrabajadorFormRequest $request)
     {
-        $mensaje = '';
 
         $trabajador = new Trabajador();
         $trabajador->nombre = $request['nombre'];
@@ -60,10 +59,8 @@ class TrabajadorController extends Controller
             ]);
     }
 
-    public function update(TrabajadorRequest $request, $id)
+    public function update(TrabajadorFormRequest $request, $id)
     {
-
-        $mensaje = '';
 
         $trabajador = Trabajador::findOrFail($id);
         $trabajador->nombre = $request['nombre'];
