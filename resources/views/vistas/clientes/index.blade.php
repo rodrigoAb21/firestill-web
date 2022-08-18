@@ -61,7 +61,7 @@
                                                 Editar
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$cliente -> nombre}}', '{{url('clientes/'.$cliente -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$cliente -> nombre_empresa}}', '{{url('clientes/'.$cliente -> id)}}')">
                                             Eliminar
                                         </button>
                                     </td>

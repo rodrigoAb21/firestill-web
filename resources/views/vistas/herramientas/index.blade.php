@@ -79,7 +79,7 @@
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
                 $('#modalEliminarTitulo').html("Eliminar Herramienta");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la herramienta?");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la herramienta: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 

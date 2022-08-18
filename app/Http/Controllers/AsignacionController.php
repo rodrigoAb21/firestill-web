@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AsignacionHerramientaFormRequest;
+use App\Http\Requests\ReingresoHerramientaFormRequest;
 use App\Models\AsignacionHerramienta;
 use App\Models\BajaHerramienta;
 use App\Models\DetalleAsignacion;
@@ -9,6 +11,7 @@ use App\Models\DetalleReingreso;
 use App\Models\Herramienta;
 use App\Models\Reingreso;
 use App\Models\Trabajador;
+use App\Utils\Utils;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,17 +22,7 @@ class AsignacionController extends Controller
     // --------------------------ASIGNACIONES----------------------------------
     // ------------------------------------------------------------------------
 
-    /**
-     *************************************************************************
-     * Nombre........:
-     * Tipo..........: Funcion
-     * Entrada.......:
-     * Salida........:
-     * Descripcion...:
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
+
     public function listaAsignaciones()
     {
         return view('vistas.herramientas.asignaciones.listaAsignaciones', [
@@ -37,17 +30,6 @@ class AsignacionController extends Controller
         ]);
     }
 
-    /**
-     *************************************************************************
-     * Nombre........:
-     * Tipo..........: Funcion
-     * Entrada.......:
-     * Salida........:
-     * Descripcion...:
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function nuevaAsignacion()
     {
         return view('vistas.herramientas.asignaciones.nuevaAsignacion',
@@ -56,27 +38,9 @@ class AsignacionController extends Controller
                 'herramientas' => Herramienta::all(),
             ]);
     }
-    /**
-     *************************************************************************
-     * Nombre........:
-     * Tipo..........: Funcion
-     * Entrada.......:
-     * Salida........:
-     * Descripcion...:
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-    public function guardarAsignacion(Request $request)
+
+    public function guardarAsignacion(AsignacionHerramientaFormRequest $request)
     {
-        $this->validate($request, [
-            'fecha' => 'required|date',
-            'idHerramientaT' => 'required|array|min:1',
-            'idHerramientaT.*' => 'required|numeric|min:1',
-            'cantidadT' => 'required|array|min:1',
-            'cantidadT.*' => 'required|numeric|min:1',
-            'trabajador_id' => 'required|numeric|min:1',
-        ]);
 
         try {
             DB::beginTransaction();
@@ -109,29 +73,18 @@ class AsignacionController extends Controller
             }
 
             DB::commit();
+            $mensaje = Utils::$OPERACION_EXISTOSA;
 
         } catch (QueryException $e) {
 
             DB::rollback();
-
-            return redirect('herramientas/listaAsignaciones')->with(['message' => 'No es posible realizar la asignacion.']);
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
 
         }
 
-        return redirect('herramientas/listaAsignaciones');
+        return redirect('herramientas/listaAsignaciones')->with(['message' => $mensaje]);
     }
 
-    /**
-     *************************************************************************
-     * Nombre........:
-     * Tipo..........: Funcion
-     * Entrada.......:
-     * Salida........:
-     * Descripcion...:
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function eliminarAsignacion($id)
     {
         $asignacion = AsignacionHerramienta::findOrFail($id);
@@ -146,22 +99,15 @@ class AsignacionController extends Controller
                 $herramienta->update();
             }
         }
-        $asignacion->delete();
+        if ($asignacion->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('herramientas/listaAsignaciones');
+        return redirect('herramientas/listaAsignaciones')->with(['message' => $mensaje]);
     }
 
-    /**
-     *************************************************************************
-     * Nombre........:
-     * Tipo..........: Funcion
-     * Entrada.......:
-     * Salida........:
-     * Descripcion...:
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function reingreso($id)
     {
         return view('vistas.herramientas.asignaciones.reingreso',
@@ -170,30 +116,8 @@ class AsignacionController extends Controller
             ]);
     }
 
-    /**
-     *************************************************************************
-     * Nombre........:
-     * Tipo..........: Funcion
-     * Entrada.......:
-     * Salida........:
-     * Descripcion...:
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-    public function guardarReingreso(Request $request, $id)
+    public function guardarReingreso(ReingresoHerramientaFormRequest $request, $id)
     {
-
-        $this->validate($request, [
-            'idHerramientaT' => 'required|array|min:1',
-            'idHerramientaT.*' => 'required|numeric|min:0',
-            'cantidadAT' => 'required|array|min:1',
-            'cantidadAT.*' => 'required|numeric|min:0',
-            'cantidadRT' => 'required|array|min:1',
-            'cantidadRT.*' => 'required|numeric|min:0',
-            'motivoT' => 'nullable|array|min:1',
-            'motivoT.*' => 'nullable|string|max:255',
-        ]);
 
         try {
             DB::beginTransaction();
@@ -244,31 +168,18 @@ class AsignacionController extends Controller
                 $cont = $cont + 1;
             }
             DB::commit();
+            $mensaje = Utils::$OPERACION_EXISTOSA;
 
         } catch (QueryException $e) {
 
             DB::rollback();
-
-            return redirect('herramientas/listaAsignaciones')->with(['message' => 'No se pudo realizar el reingreso.']);
+            $mensaje = Utils::$OPERACION_EXISTOSA;
 
         }
 
-
-
-        return redirect('herramientas/listaAsignaciones');
+        return redirect('herramientas/listaAsignaciones')->with(['message' => $mensaje]);
     }
 
-    /**
-     *************************************************************************
-     * Nombre........:
-     * Tipo..........: Funcion
-     * Entrada.......:
-     * Salida........:
-     * Descripcion...:
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function verAsignacion($id)
     {
         $reingreso = Reingreso::where('asignacion_herramienta_id', '=', $id)->first();

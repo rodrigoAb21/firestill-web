@@ -36,7 +36,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{$asignacion->fecha}}"
+                                           value="{{date('Y-m-d')}}"
                                            name="fecha">
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                             <input required name="cantidadAT[]" type="hidden" value="{{$detalle->cantidad}}">
                                         </td>
                                         <td>
-                                            <input class="form-control" name="cantidadRT[]" type="number" value="{{$detalle->cantidad}}" max="{{$detalle->cantidad}}" required>
+                                            <input class="form-control" name="cantidadRT[]" type="number" min="0" value="{{$detalle->cantidad}}" max="{{$detalle->cantidad}}" required>
                                         </td>
                                         <td>
                                             <input class="form-control" name="motivoT[]" type="text">

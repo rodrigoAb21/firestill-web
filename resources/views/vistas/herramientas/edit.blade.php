@@ -8,6 +8,15 @@
                     <h3 class="pb-2">
                         Editar herramienta
                     </h3>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form method="POST" action="{{url('herramientas/'.$herramienta -> id)}}" autocomplete="off">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}

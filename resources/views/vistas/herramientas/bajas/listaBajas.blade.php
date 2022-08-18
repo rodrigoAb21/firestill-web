@@ -33,9 +33,9 @@
                                 <tr class="text-center">
                                     <td>{{$baja->id}}</td>
                                     <td>{{$baja->herramienta->nombre}}</td>
-                                    <td>{{$baja->trabajador->nombre}}</td>
+                                    <td>{{$baja->trabajador->nombre}} {{$baja->trabajador->apellido}}</td>
                                     <td>{{$baja->cantidad}}</td>
-                                    <td>{{Carbon\Carbon::createFromFormat('Y-m-d', $baja->fecha)->format('d-m-Y')}}</td>
+                                    <td>{{date_format(date_create($baja->fecha), 'd-M-Y')}}</td>
                                     <td>{{$baja->motivo}}</td>
                                     <td>
                                         <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$baja -> nombre}}', '{{url('herramientas/anularBaja/'.$baja -> id)}}')">

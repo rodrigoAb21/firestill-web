@@ -2,34 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClienteFormRequest;
 use App\Models\Cliente;
-use Illuminate\Http\Request;
+use App\Utils\Utils;
 
 class ClienteController extends Controller
 {
-    /**
-     *************************************************************************
-     * Clase.........: ClienteController
-     * Tipo..........: Controlador (MVC)
-     * Descripción...: Clase que contiene funciones y metodos para gestionar
-     * los clientes.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
 
-
-    /**
-     *************************************************************************
-     * Nombre........: index
-     * Tipo..........: Funcion
-     * Entrada.......: Ninguna
-     * Salida........: Vista y una lista paginada de clientes
-     * Descripcion...: Una lista de clientes que será mostrado en una vista
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function index(){
         return view('vistas.clientes.index',
             [
@@ -37,52 +16,12 @@ class ClienteController extends Controller
             ]);
     }
 
-
-
-    /**
-     *************************************************************************
-     * Nombre........: create
-     * Tipo..........: Funcion
-     * Entrada.......: Ninguna
-     * Salida........: Vista con dos listas, una de monedas y otra sucursales
-     * Descripcion...: Muestra la vista con el formulario para la creacion de
-     * un nuevo cliente
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function create(){
         return view('vistas.clientes.create');
     }
 
-
-
-    /**
-     *************************************************************************
-     * Nombre........: store
-     * Tipo..........: Funcion
-     * Entrada.......: Solicitud HTTP
-     * Salida........: Ninguna, solo redirecciona a la url de 'clientes'
-     * Descripcion...: Crea un nuevo cliente con los datos obtenidos de la
-     * solicitud HTTP.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-    public function store(Request $request)
+    public function store(ClienteFormRequest $request)
     {
-        $this->validate($request, [
-            'nombre_empresa' => 'required|max:255',
-            'nit' => 'nullable|numeric',
-            'email' => 'nullable|email|max:255',
-            'email_encargado' => 'nullable|email|max:255',
-            'telefono_empresa' => 'nullable|digits_between:7,8',
-            'direccion' => 'nullable|string|max:255',
-            'nombre_encargado' => 'nullable|string|max:255',
-            'cargo_encargado' => 'nullable|string|max:255',
-            'telefono_encargado' => 'nullable|digits_between:7,8',
-        ]);
-
         $cliente = new Cliente();
         $cliente->nombre_empresa = $request['nombre_empresa'];
         $cliente->nit = $request['nit'];
@@ -93,23 +32,16 @@ class ClienteController extends Controller
         $cliente->nombre_encargado = $request['nombre_encargado'];
         $cliente->cargo_encargado = $request['cargo_encargado'];
         $cliente->telefono_encargado = $request['telefono_encargado'];
-        $cliente->save();
 
-        return redirect('clientes');
+        if ($cliente->save()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
+        return redirect('clientes')->with(['message' => $mensaje]);
+
     }
 
-    /**
-     *************************************************************************
-     * Nombre........: edit
-     * Tipo..........: Funcion
-     * Entrada.......: int: id del cliente que se quiere editar
-     * Salida........: Una vista con el cliente que se quiere editar
-     * Descripcion...: Obtiene el cliente buscandolo por su id, y lo muestra
-     * en un formulario con sus datos para poder ser editado.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function edit($id)
     {
         return view('vistas.clientes.edit', [
@@ -117,18 +49,6 @@ class ClienteController extends Controller
         ]);
     }
 
-    /**
-     *************************************************************************
-     * Nombre........: edit
-     * Tipo..........: Funcion
-     * Entrada.......: int: id del cliente que se quiere editar
-     * Salida........: Una vista con el cliente que se quiere editar
-     * Descripcion...: Obtiene el cliente buscandolo por su id, y lo muestra
-     * en un formulario con sus datos para poder ser editado.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function show($id)
     {
         return view('vistas.clientes.show',
@@ -137,31 +57,8 @@ class ClienteController extends Controller
             ]);
     }
 
-    /**
-     *************************************************************************
-     * Nombre........: update
-     * Tipo..........: Funcion
-     * Entrada.......: Solicitud HTTP y un int:id
-     * Salida........: Ninguna, solo redirecciona a la url de 'clientes'
-     * Descripcion...: Obtiene el cliente a través de su id, y reemplaza todos
-     * sus datos con los que se encuentra en la solicitud HTTP
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-    public function update(Request $request, $id)
+    public function update(ClienteFormRequest $request, $id)
     {
-        $this->validate($request, [
-            'nombre_empresa' => 'required|max:255',
-            'nit' => 'nullable|numeric',
-            'email' => 'nullable|email|max:255',
-            'email_encargado' => 'nullable|email|max:255',
-            'telefono_empresa' => 'nullable|digits_between:7,8',
-            'direccion' => 'nullable|string|max:255',
-            'nombre_encargado' => 'nullable|string|max:255',
-            'cargo_encargado' => 'nullable|string|max:255',
-            'telefono_encargado' => 'nullable|digits_between:7,8',
-        ]);
 
         $cliente = Cliente::findOrFail($id);
         $cliente->nombre_empresa = $request['nombre_empresa'];
@@ -173,29 +70,26 @@ class ClienteController extends Controller
         $cliente->nombre_encargado = $request['nombre_encargado'];
         $cliente->cargo_encargado = $request['cargo_encargado'];
         $cliente->telefono_encargado = $request['telefono_encargado'];
-        $cliente->update();
 
-        return redirect('clientes');
+        if ($cliente->update()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
+        return redirect('clientes')->with(['message' => $mensaje]);
+
     }
 
-
-    /**
-     *************************************************************************
-     * Nombre........: destroy
-     * Tipo..........: Funcion
-     * Entrada.......: int: id del cliente
-     * Salida........: Ninguna, solo redirecciona a la url 'clientes'
-     * Descripcion...: Obtiene el cliente, lo elimina (softDelete) y
-     * redirecciona a la url 'clientes'.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function destroy($id)
     {
         $cliente = Cliente::findOrFail($id);
-        $cliente->delete();
 
-        return redirect('clientes');
+        if ($cliente->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
+        return redirect('clientes')->with(['message' => $mensaje]);
+
     }
 }

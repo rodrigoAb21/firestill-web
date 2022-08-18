@@ -36,7 +36,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}"
+                                           value="{{date('Y-m-d')}}"
                                            name="fecha">
                                 </div>
                             </div>
@@ -154,22 +154,25 @@
             var costo = 0;
             var total = 0;
             var subtotal = [];
+            var agregados = [];
 
             function agregar() {
                 cantidad = $('#cantidad').val();
                 costo = $('#costo').val();
-                if(cont>=0 && cantidad != null && cantidad > 0 && costo != null && costo > 0) {
+                idHerramienta = $('#selectorHerramienta').val();
+                nombreHerramienta = $('#selectorHerramienta option:selected').text();
 
+                if(!agregados.includes(idHerramienta) && cont>=0 && cantidad != null && cantidad > 0 && costo != null && costo > 0) {
+                    agregados.push(idHerramienta);
                     subtotal[cont] = (cantidad * costo).toFixed(2);
                     total = parseFloat(total) + parseFloat(subtotal[cont]);
                     total = parseFloat(total).toFixed(2);
 
-                    idHerramienta = $('#selectorHerramienta').val();
-                    nombreHerramienta = $('#selectorHerramienta option:selected').text();
+
                     var fila =
                         '<tr class="text-center" id="fila' + cont + '">' +
                         '<td>' +
-                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar(' + cont + ');">' +
+                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar(' + cont + ',' + idHerramienta + ');">' +
                         '<i class="fa fa-times" aria-hidden="true"></i>' +
                         '</button>' +
                         '</td>' +
@@ -200,7 +203,12 @@
                 evaluar();
             }
 
-            function quitar(index){
+            function quitar(index, id){
+                let i = agregados.indexOf(String(id));
+                if (i > -1) {
+                    agregados.splice(i, 1);
+                }
+
                 total = total - subtotal[index];
                 $("#total").html(total);
                 $('#tt').val(total);

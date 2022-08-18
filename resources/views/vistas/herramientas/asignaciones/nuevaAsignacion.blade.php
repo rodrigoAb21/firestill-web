@@ -36,7 +36,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}"
+                                           value="{{date('Y-m-d')}}"
                                            name="fecha">
                                 </div>
                             </div>
@@ -115,6 +115,7 @@
 
             var cont = 0;
             var datosHerramienta;
+            var agregados = [];
 
             function evaluar(){
                 if (cont > 0) {
@@ -132,13 +133,14 @@
 
             function agregar() {
                 cantidad = $('#cantidad').val();
-                if(cont >= 0 && cantidad != null && cantidad > 0 && cantidad <= parseFloat(datosHerramienta[2])) {
-                    nombreInsumo = datosHerramienta[1];
-                    idHerramientaT = datosHerramienta[0];
+                nombreInsumo = datosHerramienta[1];
+                idHerramientaT = datosHerramienta[0];
+                if(!agregados.includes(idHerramientaT) && cont >= 0 && cantidad != null && cantidad > 0 && cantidad <= parseFloat(datosHerramienta[2])) {
+                    agregados.push(idHerramientaT);
                     var fila =
                         '<tr id="fila' + cont + '">' +
                         '<td>' +
-                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar(' + cont + ');">' +
+                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar(' + cont + ',' + idHerramientaT + ');">' +
                         '<i class="fa fa-times" aria-hidden="true"></i>' +
                         '</button>' +
                         '</td>' +
@@ -157,7 +159,11 @@
                 evaluar();
             }
 
-            function quitar(index){
+            function quitar(index, id){
+                let i = agregados.indexOf(String(id));
+                if (i > -1) {
+                    agregados.splice(i, 1);
+                }
                 cont--;
                 $("#fila" + index).remove();
                 evaluar();
