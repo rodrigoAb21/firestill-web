@@ -2,34 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MarcaClasificacionFormRequest;
 use App\Models\MarcaClasificacion;
+use App\Utils\Utils;
 use Illuminate\Http\Request;
 
 class MarcaClasificacionController extends Controller
 {
-    /**
-     *************************************************************************
-     * Clase.........: MarcaClasificacionController
-     * Tipo..........: Controlador (MVC)
-     * Descripción...: Clase que contiene funciones y metodos para gestionar las
-     * categorías.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
 
-
-    /**
-     *************************************************************************
-     * Nombre........: index
-     * Tipo..........: Funcion
-     * Entrada.......: Ninguna
-     * Salida........: Vista y una lista paginada de marcas
-     * Descripcion...: Una lista de marcas que será mostrado en una vista
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function index(){
         return view('vistas.marcas.index',
             [
@@ -37,62 +17,24 @@ class MarcaClasificacionController extends Controller
             ]);
     }
 
-
-    /**
-     *************************************************************************
-     * Nombre........: create
-     * Tipo..........: Funcion
-     * Entrada.......: Ninguna
-     * Salida........: Vista con dos listas, una de monedas y otra sucursales
-     * Descripcion...: Muestra la vista con el formulario para la creacion de
-     * un nuevo marca
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function create(){
         return view('vistas.marcas.create');
     }
 
-
-
-    /**
-     *************************************************************************
-     * Nombre........: store
-     * Tipo..........: Funcion
-     * Entrada.......: Solicitud HTTP
-     * Salida........: Ninguna, solo redirecciona a la url de 'marcas'
-     * Descripcion...: Crea un nuevo marca con los datos obtenidos de la
-     * solicitud HTTP.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-    public function store(Request $request)
+    public function store(MarcaClasificacionFormRequest $request)
     {
-        $this->validate($request, [
-            'nombre' => 'required|max:255',
-        ]);
+
         $marca = new MarcaClasificacion();
         $marca->nombre = $request['nombre'];
-        $marca->save();
+        if ($marca->save()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('marcas');
+        return redirect('marcas')->with(['message' => $mensaje]);
     }
 
-
-    /**
-     *************************************************************************
-     * Nombre........: edit
-     * Tipo..........: Funcion
-     * Entrada.......: int: id del marca que se quiere editar
-     * Salida........: Una vista con el marca que se quiere editar
-     * Descripcion...: Obtiene el marca buscandolo por su id, y lo muestra
-     * en un formulario con sus datos para poder ser editado.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function edit($id)
     {
         return view('vistas.marcas.edit',
@@ -101,48 +43,28 @@ class MarcaClasificacionController extends Controller
             ]);
     }
 
-    /**
-     *************************************************************************
-     * Nombre........: update
-     * Tipo..........: Funcion
-     * Entrada.......: Solicitud HTTP y un int:id
-     * Salida........: Ninguna, solo redirecciona a la url de 'marcas'
-     * Descripcion...: Obtiene el marca a través de su id, y reemplaza
-     * todos sus datos con los que se encuentra en la solicitud HTTP
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'nombre' => 'required|max:255',
-        ]);
-
         $marca = MarcaClasificacion::findOrFail($id);
         $marca->nombre = $request['nombre'];
-        $marca->update();
+        if ($marca->update()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('marcas');
+        return redirect('marcas')->with(['message' => $mensaje]);
     }
 
-    /**
-     *************************************************************************
-     * Nombre........: destroy
-     * Tipo..........: Funcion
-     * Entrada.......: int:id de la marca
-     * Salida........: Ninguna, solo redirecciona a la url 'marcas'
-     * Descripcion...: Obtiene el marca, lo elimina (softDelete) y
-     * redirecciona a la url 'marcas'.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
     public function destroy($id)
     {
         $marca = MarcaClasificacion::findOrFail($id);
-        $marca->delete();
+        if ($marca->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('marcas');
+        return redirect('marcas')->with(['message' => $mensaje]);
     }
 }
