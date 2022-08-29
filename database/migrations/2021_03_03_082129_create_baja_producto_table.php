@@ -18,7 +18,6 @@ class CreateBajaProductoTable extends Migration
             $table->date('fecha');
             $table->integer('cantidad');
             $table->string('motivo');
-            $table->softDeletes();
 
             $table->unsignedInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('producto');

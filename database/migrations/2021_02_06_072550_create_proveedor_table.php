@@ -7,17 +7,6 @@ use Illuminate\Database\Migrations\Migration;
 class CreateProveedorTable extends Migration
 {
     /**
-     *************************************************************************
-     * Clase.........: CreateProveedorTable
-     * Tipo..........: Migracion
-     * Descripción...: Clase creara la tabla "proveedor" en la BD.
-     * Fecha.........: 06-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-
-
-    /**
      * Run the migrations.
      *
      * @return void
@@ -39,7 +28,6 @@ class CreateProveedorTable extends Migration
             $table->string('moneda')->nullable();
             $table->string('tipo_identificacion')->nullable();
             $table->string('nro_identificacion')->nullable();
-            $table->softDeletes();
         });
     }
 

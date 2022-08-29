@@ -6,17 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateBajaHerramientaTable extends Migration
 {
-
-    /**
-     *************************************************************************
-     * Clase.........: CreateBajaHerramientaTable
-     * Tipo..........: Migracion
-     * Descripción...: Clase creara la tabla "baja_herramienta" en la BD.
-     * Fecha.........: 06-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-
     /**
      * Run the migrations.
      *
@@ -29,7 +18,6 @@ class CreateBajaHerramientaTable extends Migration
             $table->date('fecha');
             $table->string('motivo');
             $table->unsignedInteger('cantidad');
-            $table->softDeletes();
 
             $table->unsignedInteger('herramienta_id');
             $table->foreign('herramienta_id')->references('id')

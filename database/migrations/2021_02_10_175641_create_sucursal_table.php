@@ -17,8 +17,6 @@ class CreateSucursalTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('direccion');
-            $table->softDeletes();
-
 
             $table->unsignedInteger('contrato_id');
             $table->foreign('contrato_id')->references('id')->on('contrato');

@@ -17,7 +17,6 @@ class CreateDetalleNotaVentaTable extends Migration
             $table->increments('id');
             $table->integer('cantidad');
             $table->float('precio');
-            $table->softDeletes();
 
             $table->unsignedInteger('nota_venta_id');
             $table->foreign('nota_venta_id')->references('id')->on('nota_venta');

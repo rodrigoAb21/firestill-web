@@ -6,17 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateDetalleAsignacionTable extends Migration
 {
-
-    /**
-     *************************************************************************
-     * Clase.........: CreateCategoriaTable
-     * Tipo..........: Migracion
-     * Descripción...: Clase creara la tabla "categoria" en la BD.
-     * Fecha.........: 06-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-
     /**
      * Run the migrations.
      *
@@ -27,7 +16,6 @@ class CreateDetalleAsignacionTable extends Migration
         Schema::create('detalle_asignacion', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('cantidad');
-            $table->softDeletes();
 
             $table->unsignedInteger('asignacion_herramienta_id');
             $table->foreign('asignacion_herramienta_id')->references('id')->on('asignacion_herramienta');

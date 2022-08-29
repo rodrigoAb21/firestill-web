@@ -28,7 +28,6 @@ class CreateEquipoTable extends Migration
             $table->float('presion_actual')->nullable();
             $table->double('longitud_actual')->nullable();
             $table->double('latitud_actual')->nullable();
-            $table->softDeletes();
 
 
             $table->unsignedInteger('sucursal_id');

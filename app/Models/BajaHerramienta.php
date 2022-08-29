@@ -3,15 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BajaHerramienta extends Model
 {
     protected $table = 'baja_herramienta';
     protected $primaryKey = 'id';
     public $timestamps = false;
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
     protected $fillable = [
         'fecha',
         'motivo',

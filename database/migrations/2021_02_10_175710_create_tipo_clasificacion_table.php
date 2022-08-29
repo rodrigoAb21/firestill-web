@@ -16,7 +16,6 @@ class CreateTipoClasificacionTable extends Migration
         Schema::create('tipo_clasificacion', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->softDeletes();
         });
     }
 

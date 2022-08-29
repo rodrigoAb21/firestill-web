@@ -18,7 +18,6 @@ class CreateNotaVentaTable extends Migration
             $table->date('fecha');
             $table->boolean('tipo')->default(true);
             $table->float('total');
-            $table->softDeletes();
 
 
             $table->unsignedInteger('trabajador_id');

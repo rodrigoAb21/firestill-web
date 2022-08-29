@@ -16,7 +16,6 @@ class CreateMarcaClasificacionTable extends Migration
         Schema::create('marca_clasificacion', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->softDeletes();
         });
     }
 

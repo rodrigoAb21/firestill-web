@@ -6,17 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateHerramientaTable extends Migration
 {
-
-    /**
-     *************************************************************************
-     * Clase.........: CreateHerramientaTable
-     * Tipo..........: Migracion
-     * Descripción...: Clase creara la tabla "herramienta" en la BD.
-     * Fecha.........: 06-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-
     /**
      * Run the migrations.
      *
@@ -30,7 +19,6 @@ class CreateHerramientaTable extends Migration
             $table->unsignedInteger('cantidad_taller');
             $table->unsignedInteger('cantidad_asignada');
             $table->unsignedInteger('cantidad_total');
-            $table->softDeletes();
         });
     }
 

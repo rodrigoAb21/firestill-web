@@ -7,17 +7,6 @@ use Illuminate\Database\Migrations\Migration;
 class CreateClienteTable extends Migration
 {
     /**
-     *************************************************************************
-     * Clase.........: CreateClienteTable
-     * Tipo..........: Migracion
-     * Descripción...: Clase creara la tabla "cliente" en la BD.
-     * Fecha.........: 06-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-
-
-    /**
      * Run the migrations.
      *
      * @return void
@@ -35,7 +24,6 @@ class CreateClienteTable extends Migration
             $table->string('nombre_encargado')->nullable();
             $table->string('cargo_encargado')->nullable();
             $table->string('telefono_encargado')->nullable();
-            $table->softDeletes();
         });
     }
 

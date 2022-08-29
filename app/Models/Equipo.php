@@ -3,25 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Equipo extends Model
 {
-    /**
-     *************************************************************************
-     * Clase.........: Equipo
-     * Tipo..........: Modelo (MVC)
-     * Descripción...: Clase que representa a la tabla "equipo" en la BD.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-
     protected $table = 'equipo';
     protected $primaryKey = 'id';
     public $timestamps = false;
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
     protected $fillable = [
         'nro_serie',
         'descripcion',
@@ -41,10 +28,10 @@ class Equipo extends Model
     ];
 
     public function tipo(){
-        return $this->belongsTo('App\Models\TipoClasificacion', 'tipo_clasificacion_id', 'id')->withTrashed();
+        return $this->belongsTo('App\Models\TipoClasificacion', 'tipo_clasificacion_id', 'id');
     }
     public function marca(){
-        return $this->belongsTo('App\Models\MarcaClasificacion', 'marca_clasificacion_id', 'id')->withTrashed();
+        return $this->belongsTo('App\Models\MarcaClasificacion', 'marca_clasificacion_id', 'id');
     }
 
     static public $UNIDAD_MEDIDA = [

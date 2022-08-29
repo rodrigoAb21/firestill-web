@@ -21,8 +21,6 @@ class CreateContratoTable extends Migration
             $table->string('estado')->default('Vigente');
             $table->boolean('edicion')->default(true);
             $table->unsignedInteger('periodo');
-            $table->softDeletes();
-
 
             $table->unsignedInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('cliente');

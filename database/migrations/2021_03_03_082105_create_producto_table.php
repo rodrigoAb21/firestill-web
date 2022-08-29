@@ -21,7 +21,6 @@ class CreateProductoTable extends Migration
             $table->text('descripcion')->nullable();
             $table->float('precio');
             $table->unsignedInteger('cantidad');
-            $table->softDeletes();
 
             $table->unsignedInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categoria');

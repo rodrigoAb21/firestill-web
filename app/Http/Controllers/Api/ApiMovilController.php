@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Cliente;
 use App\Models\Equipo;
 use App\Models\FichaTecnica;
 use Illuminate\Http\Request;

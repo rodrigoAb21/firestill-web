@@ -7,17 +7,6 @@ use Illuminate\Database\Migrations\Migration;
 class CreateCategoriaTable extends Migration
 {
     /**
-     *************************************************************************
-     * Clase.........: CreateCategoriaTable
-     * Tipo..........: Migracion
-     * Descripción...: Clase creara la tabla "categoria" en la BD.
-     * Fecha.........: 06-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-
-
-    /**
      * Run the migrations.
      *
      * @return void
@@ -27,7 +16,6 @@ class CreateCategoriaTable extends Migration
         Schema::create('categoria', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->softDeletes();
         });
     }
 

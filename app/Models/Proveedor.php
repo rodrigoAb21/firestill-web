@@ -3,25 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Proveedor extends Model
 {
-    /**
-     *************************************************************************
-     * Clase.........: Proveedor
-     * Tipo..........: Modelo (MVC)
-     * Descripción...: Clase que representa a la tabla "proveedor" en la BD.
-     * Fecha.........: 07-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-
     protected $table = 'proveedor';
     protected $primaryKey = 'id';
     public $timestamps = false;
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
     protected $fillable = [
         'nombre',
         'nit',

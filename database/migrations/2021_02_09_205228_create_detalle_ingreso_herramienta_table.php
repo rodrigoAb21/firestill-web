@@ -17,7 +17,7 @@ class CreateDetalleIngresoHerramientaTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('cantidad');
             $table->float('costo');
-            $table->softDeletes();
+
             $table->unsignedInteger('herramienta_id');
             $table->foreign('herramienta_id')->references('id')
                 ->on('herramienta')->onDelete('cascade');

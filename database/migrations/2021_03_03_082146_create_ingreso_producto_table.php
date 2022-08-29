@@ -22,7 +22,6 @@ class CreateIngresoProductoTable extends Migration
 
             $table->unsignedInteger('proveedor_id');
             $table->foreign('proveedor_id')->references('id')->on('proveedor');
-            $table->softDeletes();
         });
     }
 

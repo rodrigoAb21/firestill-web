@@ -17,7 +17,6 @@ class CreateDetalleIngresoProductoTable extends Migration
             $table->increments('id');
             $table->float('costo');
             $table->unsignedInteger('cantidad');
-            $table->softDeletes();
 
             $table->unsignedInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('producto');

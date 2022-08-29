@@ -17,7 +17,6 @@ class CreateServicioTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->float('precio');
-            $table->softDeletes();
 
             $table->unsignedInteger('nota_venta_id');
             $table->foreign('nota_venta_id')->references('id')->on('nota_venta');

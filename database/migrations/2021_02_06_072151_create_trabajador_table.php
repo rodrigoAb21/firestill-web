@@ -6,18 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTrabajadorTable extends Migration
 {
-    /**
-     *************************************************************************
-     * Clase.........: CreateEmpleadoTable
-     * Tipo..........: Migracion
-     * Descripción...: Clase creara la tabla "trabajador" en la BD.
-     * Fecha.........: 06-FEB-2021
-     * Autor.........: Rodrigo Abasto Berbetty
-     *************************************************************************
-     */
-
-
-    /**
+     /**
      * Run the migrations.
      *
      * @return void
@@ -34,7 +23,6 @@ class CreateTrabajadorTable extends Migration
             $table->string('tipo');
             $table->string('email')->unique();
             $table->string('password');
-            $table->softDeletes();
             $table->rememberToken();
         });
 

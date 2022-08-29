@@ -34,7 +34,6 @@ class CreateFichaTecnicaTable extends Migration
             $table->float('carga')->nullable();
             $table->text('observacion')->nullable();
             $table->string('resultado');
-            $table->softDeletes();
 
             $table->unsignedInteger('trabajador_id');
             $table->foreign('trabajador_id')->references('id')->on('trabajador');
