@@ -36,6 +36,7 @@
                                     <input required
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('nombre') }}"
                                            name="nombre">
                                 </div>
                             </div>

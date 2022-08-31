@@ -44,19 +44,20 @@
                                 <div class="form-group">
                                     <label>Factura</label>
                                     <input
-                                            type="file"
-                                            accept="image/*"
-                                            name="foto_factura"
-                                            class="form-control">
+                                        type="file"
+                                        accept="image/*"
+                                        name="foto_factura"
+                                        class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Nro Factura</label>
                                     <input
-                                            name="nro_factura"
-                                            type="text"
-                                            class="form-control">
+                                        value="{{ old('nro_factura') }}"
+                                        name="nro_factura"
+                                        type="text"
+                                        class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -64,6 +65,7 @@
                                     <label>Tienda*</label>
                                     <input required
                                            type="text"
+                                           value="{{ old('tienda') }}"
                                            name="tienda"
                                            class="form-control">
                                 </div>
@@ -85,20 +87,35 @@
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Cantidad</label>
-                                    <input class="form-control" title="Cantidad" placeholder="Cantidad" type="number" id="cantidad">
+                                    <input
+                                        class="form-control"
+                                        title="Cantidad"
+                                        placeholder="Cantidad"
+                                        type="number"
+                                        id="cantidad">
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Costo Unitario</label>
-                                    <input class="form-control" title="Costo U. Bs" placeholder="Costo U." step="0.01" type="number" id="costo">
+                                    <input
+                                        class="form-control"
+                                        title="Costo U. Bs"
+                                        placeholder="Costo U."
+                                        step="0.01"
+                                        type="number"
+                                        id="costo">
                                 </div>
                             </div>
                             <input name="total" required hidden step="0.001" type="number" id="tt">
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label style="color: white">Agregar</label>
-                                    <button id="btn_agregar" type="button" onclick="agregar()" class="btn btn-success btn-sm btn-block">
+                                    <button
+                                        id="btn_agregar"
+                                        type="button"
+                                        onclick="agregar()"
+                                        class="btn btn-success btn-sm btn-block">
                                         <span class="fa fa-plus fa-2x"></span>
                                     </button>
                                 </div>

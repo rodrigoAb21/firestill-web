@@ -1,14 +1,5 @@
 @extends('layouts.index')
 @section('contenido')
-    <!--
-	*************************************************************************
-	 * Nombre........: create
-	 * Tipo..........: Vista
-	 * Descripcion...:
-	 * Fecha.........: 07-FEB-2021
-	 * Autor.........: Rodrigo Abasto Berbetty
-	 *************************************************************************
-	-->
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -34,7 +25,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}"
+                                           value="{{date('Y-m-d')}}"
                                            name="fecha">
                                 </div>
                             </div>
@@ -54,6 +45,7 @@
                                     <input
                                            name="nro_factura"
                                            type="text"
+                                           value="{{ old('nro_factura') }}"
                                            class="form-control">
                                 </div>
                             </div>

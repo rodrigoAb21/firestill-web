@@ -1,14 +1,5 @@
 @extends('layouts.index')
 @section('contenido')
-    <!--
-	*************************************************************************
-	 * Nombre........: create
-	 * Tipo..........: Vista
-	 * Descripcion...:
-	 * Fecha.........: 07-FEB-2021
-	 * Autor.........: Rodrigo Abasto Berbetty
-	 *************************************************************************
-	-->
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -54,7 +45,7 @@
                                     <label>Fecha inicio*</label>
                                     <input required
                                            type="date"
-                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}"
+                                           value="{{date('Y-m-d')}}"
                                            class="form-control"
                                            name="fecha_inicio">
                                 </div>
@@ -64,8 +55,7 @@
                                     <label>Fecha fin*</label>
                                     <input required
                                            type="date"
-                                           value="{{\Carbon\Carbon::now('America/La_Paz')->addYear()->toDateString()}}"
-                                           min="{{\Carbon\Carbon::now('America/La_Paz')->addYear()->toDateString()}}"
+                                           value="{{date('Y-m-d', strtotime('+1 year'))}}"
                                            class="form-control"
                                            name="fecha_fin">
                                 </div>
@@ -76,6 +66,7 @@
                                     <input required
                                            type="number"
                                            class="form-control"
+                                           value="{{ old('periodo') }}"
                                            name="periodo">
                                 </div>
                             </div>

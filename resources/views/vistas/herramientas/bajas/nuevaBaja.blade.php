@@ -1,16 +1,5 @@
 @extends('layouts.index')
 @section('contenido')
-
-    <!--
-	*************************************************************************
-	 * Nombre........: create
-	 * Tipo..........: Vista
-	 * Descripcion...:
-	 * Fecha.........: 07-FEB-2021
-	 * Autor.........: Rodrigo Abasto Berbetty
-	 *************************************************************************
-	-->
-
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -57,15 +46,17 @@
                                     <input required
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('motivo') }}"
                                            name="motivo">
                                 </div>
                             </div>
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Cantidad*</label>
                                     <input required
                                            type="number"
                                            class="form-control"
+                                           value="{{ old('cantidad') }}"
                                            min="1"
                                            max="{{$herramienta->cantidad_taller}}"
                                            name="cantidad">

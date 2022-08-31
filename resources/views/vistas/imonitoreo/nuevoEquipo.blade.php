@@ -1,14 +1,5 @@
 @extends('layouts.index')
 @section('contenido')
-    <!--
-	*************************************************************************
-	 * Nombre........: create
-	 * Tipo..........: Vista
-	 * Descripcion...:
-	 * Fecha.........: 07-FEB-2021
-	 * Autor.........: Rodrigo Abasto Berbetty
-	 *************************************************************************
-	-->
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -33,6 +24,7 @@
                                     <input required
                                            type="number"
                                            class="form-control"
+                                           value="{{ old('nro_serie') }}"
                                            name="nro_serie">
                                 </div>
                             </div>
@@ -43,6 +35,7 @@
                                     <input required
                                            type="number"
                                            class="form-control"
+                                           value="{{ old('ano_fabricacion') }}"
                                            name="ano_fabricacion">
                                 </div>
                             </div>
@@ -73,6 +66,7 @@
                                            type="number"
                                            step="0.01"
                                            class="form-control"
+                                           value="{{ old('capacidad') }}"
                                            name="capacidad">
                                 </div>
                             </div>
@@ -95,7 +89,7 @@
                                             name="descripcion"
                                             cols="30"
                                             class="form-control"
-                                            rows="3"></textarea>
+                                            rows="3">   {{ old('descripcion') }}</textarea>
                                 </div>
                             </div>
 
@@ -107,7 +101,7 @@
                                             name="ubicacion"
                                             cols="30"
                                             class="form-control"
-                                            rows="3"></textarea>
+                                            rows="3">  {{ old('ubicacion') }}</textarea>
                                 </div>
                             </div>
                         </div>

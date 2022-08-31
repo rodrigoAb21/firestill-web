@@ -35,10 +35,11 @@
                                     <input required
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('nombre') }}"
                                            name="nombre">
                                 </div>
                             </div>
-                            
+
                         </div>
                         <a href="{{url('categorias')}}" class="btn btn-warning">Atrás</a>
                         <button type="submit" class="btn btn-info">Guardar</button>

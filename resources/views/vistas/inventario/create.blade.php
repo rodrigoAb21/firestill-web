@@ -1,14 +1,5 @@
 @extends('layouts.index')
 @section('contenido')
-    <!--
-	*************************************************************************
-	 * Nombre........: create
-	 * Tipo..........: Vista
-	 * Descripcion...:
-	 * Fecha.........: 07-FEB-2021
-	 * Autor.........: Rodrigo Abasto Berbetty
-	 *************************************************************************
-	-->
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -34,6 +25,7 @@
                                     <input required
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('nombre') }}"
                                            name="nombre">
                                 </div>
                             </div>
@@ -43,6 +35,7 @@
                                     <input required
                                            type="number"
                                            class="form-control"
+                                           value="{{ old('precio') }}"
                                            name="precio">
                                 </div>
                             </div>
@@ -79,7 +72,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Descripción</label>
-                                    <textarea name="descripcion" rows="3" class="form-control"></textarea>
+                                    <textarea name="descripcion" rows="3" class="form-control">{{ old('descripcion') }}</textarea>
                                 </div>
                             </div>
                         </div>

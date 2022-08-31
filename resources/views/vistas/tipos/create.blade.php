@@ -1,15 +1,5 @@
 @extends('layouts.index')
 @section('contenido')
-
-    <!--
-	*************************************************************************
-	 * Nombre........: create
-	 * Tipo..........: Vista
-	 * Descripcion...:
-	 * Fecha.........: 07-FEB-2021
-	 * Autor.........: Rodrigo Abasto Berbetty
-	 *************************************************************************
-	-->
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -35,10 +25,11 @@
                                     <input required
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('nombre') }}"
                                            name="nombre">
                                 </div>
                             </div>
-                            
+
                         </div>
                         <a href="{{url('tipos')}}" class="btn btn-warning">Atrás</a>
                         <button type="submit" class="btn btn-info">Guardar</button>

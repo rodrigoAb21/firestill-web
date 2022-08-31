@@ -35,7 +35,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}"
+                                           value="{{date('Y-m-d')}}"
                                            name="fecha">
                                 </div>
                             </div>
