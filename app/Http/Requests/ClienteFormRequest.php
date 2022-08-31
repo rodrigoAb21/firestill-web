@@ -25,14 +25,14 @@ class ClienteFormRequest extends FormRequest
     {
         return [
             'nombre_empresa' => 'required|max:255',
-            'nit' => 'nullable|numeric|min:0',
+            'nit' => 'nullable|max:255',
             'email' => 'nullable|max:255',
             'email_encargado' => 'nullable|max:255',
-            'telefono_empresa' => 'nullable|digits_between:7,8',
+            'telefono_empresa' => 'nullable|max:255',
             'direccion' => 'nullable|max:255',
             'nombre_encargado' => 'nullable|max:255',
             'cargo_encargado' => 'nullable|max:255',
-            'telefono_encargado' => 'nullable|digits_between:7,8',
+            'telefono_encargado' => 'nullable|max:255',
         ];
     }
     public function messages()
@@ -44,8 +44,8 @@ class ClienteFormRequest extends FormRequest
             'email.max' => 'El email de la empresa no debe ser mayor a 255 caracteres.',
             'nombre_encargado.max' => 'El nombre del encargado no debe ser mayor a 255 caracteres.',
             'cargo_encargado.max' => 'El cargo del encargado no debe ser mayor a 255 caracteres.',
-            'telefono_empresa.digits_between' => 'El teléfono de la empresa debe contener entre 7 y 8 dígitos.',
-            'telefono_encargado.digits_between' => 'El teléfono del encargardo debe contener entre 7 y 8 dígitos.',
+            'telefono_empresa.max' => 'El teléfono de la empresa no debe ser mayor a 255 caracteres.',
+            'telefono_encargado.max' => 'El teléfono del encargardo no debe ser mayor a 255 caracteres.',
         ];
     }
 }
