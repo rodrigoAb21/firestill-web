@@ -24,6 +24,10 @@ class TrabajadorController extends Controller
     public function store(TrabajadorFormRequest $request)
     {
 
+        $this->validate($request, [
+            'email' => "required|max:255|email|unique:trabajador,email",
+        ]);
+
         $trabajador = new Trabajador();
         $trabajador->nombre = $request['nombre'];
         $trabajador->apellido = $request['apellido'];
@@ -61,6 +65,9 @@ class TrabajadorController extends Controller
 
     public function update(TrabajadorFormRequest $request, $id)
     {
+        $this->validate($request, [
+            'email' => "required|max:255|email|unique:trabajador,email,$id",
+        ]);
 
         $trabajador = Trabajador::findOrFail($id);
         $trabajador->nombre = $request['nombre'];

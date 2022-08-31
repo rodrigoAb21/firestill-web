@@ -36,6 +36,7 @@
                                     <input required
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('nombre') }}"
                                            name="nombre">
                                 </div>
                             </div>
@@ -45,6 +46,7 @@
                                     <input required
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('apellido') }}"
                                            name="apellido">
                                 </div>
                             </div>
@@ -54,6 +56,7 @@
                                     <input
                                             type="text"
                                             class="form-control"
+                                            value="{{ old('direccion') }}"
                                             name="direccion">
                                 </div>
                             </div>
@@ -71,18 +74,19 @@
                                 <div class="form-group">
                                     <label>Carnet*</label>
                                     <input required
-                                           maxlength="10"
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('carnet') }}"
                                            name="carnet">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Teléfono</label>
-                                    <input max="79999999"
+                                    <input
                                            type="number"
                                            class="form-control"
+                                           value="{{ old('telefono') }}"
                                            name="telefono">
                                 </div>
                             </div>
@@ -92,6 +96,7 @@
                                     <input required
                                            type="email"
                                            class="form-control"
+                                           value="{{ old('email') }}"
                                            name="email">
                                 </div>
                             </div>

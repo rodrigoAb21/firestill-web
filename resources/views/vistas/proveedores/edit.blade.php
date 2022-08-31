@@ -124,7 +124,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Sucursal</label>
-                                    <select class="form-control" name="sucursal" id="">
+                                    <select class="form-control" name="sucursal">
                                         @foreach($sucursales as $sucursal)
                                             @if($sucursal == $proveedor->sucursal)
                                                 <option selected value="{{$sucursal}}">{{$sucursal}}</option>

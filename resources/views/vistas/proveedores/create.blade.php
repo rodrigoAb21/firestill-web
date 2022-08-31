@@ -36,6 +36,7 @@
                                     <input required
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('nombre') }}"
                                            name="nombre">
                                 </div>
                             </div>
@@ -46,6 +47,7 @@
                                     <input
                                             type="number"
                                             class="form-control"
+                                            value="{{ old('nit') }}"
                                             name="nit">
                                 </div>
                             </div>
@@ -55,6 +57,7 @@
                                     <input
                                            type="email"
                                            class="form-control"
+                                           value="{{ old('email') }}"
                                            name="email">
                                 </div>
                             </div>
@@ -64,6 +67,7 @@
                                     <input required
                                             type="text"
                                             class="form-control"
+                                            value="{{ old('direccion') }}"
                                             name="direccion">
                                 </div>
                             </div>
@@ -74,6 +78,7 @@
                                     <input  required
                                             type="number"
                                             class="form-control"
+                                            value="{{ old('telefono') }}"
                                             name="telefono">
                                 </div>
                             </div>
@@ -84,6 +89,7 @@
                                     <input
                                             type="text"
                                             class="form-control"
+                                            value="{{ old('informacion') }}"
                                             name="informacion">
                                 </div>
                             </div>
@@ -99,6 +105,7 @@
                                     <input
                                            type="text"
                                            class="form-control"
+                                           value="{{ old('titular') }}"
                                            name="titular">
                                 </div>
                             </div>
@@ -109,6 +116,7 @@
                                     <input
                                             type="text"
                                             class="form-control"
+                                            value="{{ old('banco') }}"
                                             name="banco">
                                 </div>
                             </div>
@@ -116,8 +124,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Sucursal</label>
-                                    <select class="form-control" name="sucursal" id="">
-                                            <option value="">Seleccionar</option>
+                                    <select class="form-control" name="sucursal">
                                         @foreach($sucursales as $sucursal)
                                             <option value="{{$sucursal}}">{{$sucursal}}</option>
                                         @endforeach
@@ -131,6 +138,7 @@
                                     <input
                                             type="number"
                                             class="form-control"
+                                            value="{{ old('nro_cuenta') }}"
                                             name="nro_cuenta">
                                 </div>
                             </div>
@@ -140,7 +148,6 @@
                                 <div class="form-group">
                                     <label>Moneda</label>
                                     <select class="form-control" name="moneda">
-                                            <option value="">Seleccionar</option>
                                       @foreach($monedas as $moneda)
                                             <option value="{{$moneda}}">{{$moneda}}</option>
                                       @endforeach
@@ -153,6 +160,7 @@
                                     <input
                                             type="text"
                                             class="form-control"
+                                            value="{{ old('tipo_identificacion') }}"
                                             name="tipo_identificacion">
                                 </div>
                             </div>
@@ -164,6 +172,7 @@
                                     <input
                                             type="text"
                                             class="form-control"
+                                            value="{{ old('nro_identificacion') }}"
                                             name="nro_identificacion">
                                 </div>
                             </div>

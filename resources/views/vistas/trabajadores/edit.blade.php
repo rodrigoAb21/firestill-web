@@ -45,9 +45,9 @@
                                 <div class="form-group">
                                     <label>Apellido*</label>
                                     <input required
-                                            type="text"
+                                           type="text"
                                            class="form-control"
-                                            value="{{$trabajador->apellido}}"
+                                           value="{{$trabajador->apellido}}"
                                            name="apellido">
                                 </div>
                             </div>
@@ -55,10 +55,10 @@
                                 <div class="form-group">
                                     <label>Dirección</label>
                                     <input
-                                            type="text"
-                                            class="form-control"
-                                            value="{{$trabajador->direccion}}"
-                                            name="direccion">
+                                        type="text"
+                                        class="form-control"
+                                        value="{{$trabajador->direccion}}"
+                                        name="direccion">
                                 </div>
                             </div>
 
@@ -92,10 +92,10 @@
                                 <div class="form-group">
                                     <label>Teléfono</label>
                                     <input
-                                           type="number"
-                                           class="form-control"
-                                           value="{{$trabajador->telefono}}"
-                                           name="telefono">
+                                        type="number"
+                                        class="form-control"
+                                        value="{{$trabajador->telefono}}"
+                                        name="telefono">
                                 </div>
                             </div>
 
@@ -113,9 +113,9 @@
                                 <div class="form-group">
                                     <label>Contraseña</label>
                                     <input
-                                           type="password"
-                                           class="form-control"
-                                           name="password">
+                                        type="password"
+                                        class="form-control"
+                                        name="password">
                                 </div>
                             </div>
                         </div>
