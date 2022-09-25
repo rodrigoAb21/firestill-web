@@ -51,13 +51,13 @@ class ContratoController extends Controller
         $contrato->estado = "Vigente";
         $contrato->edicion = true;
         $contrato->periodo = $request['periodo'];
-        if ($request->hasFile('documento')) {
+/*        if ($request->hasFile('documento')) {
             $file = $request->file('documento');
             $file->move(public_path().'/contrato/', $file->getClientOriginalName());
             $contrato->documento = $file->getClientOriginalName();
         }else{
             $contrato->documento = 'default.png';
-        }
+        }*/
         $contrato->cliente_id = $request['cliente_id'];
         $contrato->trabajador_id = $request['trabajador_id'];
         $contrato->save();
@@ -95,11 +95,11 @@ class ContratoController extends Controller
         $contrato->fecha_inicio = $request['fecha_inicio'];
         $contrato->fecha_fin = $request['fecha_fin'];
         $contrato->periodo = $request['periodo'];
-        if ($request->hasFile('documento')) {
+/*        if ($request->hasFile('documento')) {
             $file = $request->file('documento');
             $file->move(public_path().'/contrato/', $file->getClientOriginalName());
             $contrato->documento = $file->getClientOriginalName();
-        }
+        }*/
         $contrato->cliente_id = $request['cliente_id'];
         $contrato->trabajador_id = $request['trabajador_id'];
         $contrato->update();

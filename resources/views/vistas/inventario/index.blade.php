@@ -30,7 +30,6 @@
                             <thead>
                             <tr>
                                 <th class="text-center">COD</th>
-                                <th class="text-center">IMG</th>
                                 <th class="text-center">NOMBRE</th>
                                 <th class="text-center">CATEGORIA</th>
                                 <th class="text-center">EXISTENCIAS</th>
@@ -41,7 +40,6 @@
                             @foreach($productos as $producto)
                                 <tr class="text-center">
                                     <td class="align-middle">{{$producto->id}}</td>
-                                    <td class="align-middle"><img src="{{asset('img/productos/'.$producto->foto)}}" class="img-thumbnail" width="100px"></td>
                                     <td class="align-middle">{{$producto->nombre}}</td>
                                     <td class="align-middle">{{$producto->categoria->nombre}}</td>
                                     <td class="align-middle">{{$producto->cantidad}}</td>
@@ -116,7 +114,6 @@
                         },
                         "columns": [
                             {"name": "COD"},
-                            {"name": "IMG"},
                             {"name": "NOMBRE"},
                             {"name": "CATEGORIA"},
                             {"name": "EXISTENCIAS"},

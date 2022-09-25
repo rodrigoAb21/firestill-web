@@ -287,7 +287,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor Polvo/Espuma',
-            'foto' => 'manguera-extintor.jpg',
             'origen' => 'China',
             'descripcion' => 'Conexión a la manguera: rosca macho métrica ' .
                 'M-14 x 1,25 Presión de rotura: ≥60 bars (3 veces la presión' .
@@ -300,7 +299,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor CO2',
-            'foto' => '1545101362.jpg',
             'origen' => 'China',
             'descripcion' => 'Para el modelo de 2kg se puede utilizar' .
                 ' boquilla difusora o manguera corta de PVC. Para el modelo' .
@@ -313,7 +311,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras para Extintores de PQS',
-            'foto' => 'm2.png',
             'origen' => 'China',
             'descripcion' => 'Manguera para descarga de extintores portátiles' .
                 ' de polvo químico seco, su diámetro interior uniforme ' .
@@ -325,7 +322,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Americano 400PSI',
-            'foto' => 'manometrop.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '60',
@@ -335,7 +331,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Argentino 2MPa',
-            'foto' => 'manometro_espanol.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '45',
@@ -345,7 +340,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro 27Bar',
-            'foto' => 'ManometroBar.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '50',
@@ -354,7 +348,6 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor Polvo/Espuma',
-            'foto' => 'manguera-extintor.jpg',
             'origen' => 'China',
             'descripcion' => 'Conexión a la manguera: rosca macho métrica ' .
                 'M-14 x 1,25 Presión de rotura: ≥60 bars (3 veces la presión' .
@@ -367,7 +360,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor CO2',
-            'foto' => '1545101362.jpg',
             'origen' => 'China',
             'descripcion' => 'Para el modelo de 2kg se puede utilizar' .
                 ' boquilla difusora o manguera corta de PVC. Para el modelo' .
@@ -380,7 +372,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras para Extintores de PQS',
-            'foto' => 'm2.png',
             'origen' => 'China',
             'descripcion' => 'Manguera para descarga de extintores portátiles' .
                 ' de polvo químico seco, su diámetro interior uniforme ' .
@@ -392,7 +383,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Americano 400PSI',
-            'foto' => 'manometrop.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '60',
@@ -402,7 +392,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Argentino 2MPa',
-            'foto' => 'manometro_espanol.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '45',
@@ -412,7 +401,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro 27Bar',
-            'foto' => 'ManometroBar.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '50',
@@ -421,7 +409,6 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor Polvo/Espuma',
-            'foto' => 'manguera-extintor.jpg',
             'origen' => 'China',
             'descripcion' => 'Conexión a la manguera: rosca macho métrica ' .
                 'M-14 x 1,25 Presión de rotura: ≥60 bars (3 veces la presión' .
@@ -434,7 +421,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor CO2',
-            'foto' => '1545101362.jpg',
             'origen' => 'China',
             'descripcion' => 'Para el modelo de 2kg se puede utilizar' .
                 ' boquilla difusora o manguera corta de PVC. Para el modelo' .
@@ -447,7 +433,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras para Extintores de PQS',
-            'foto' => 'm2.png',
             'origen' => 'China',
             'descripcion' => 'Manguera para descarga de extintores portátiles' .
                 ' de polvo químico seco, su diámetro interior uniforme ' .
@@ -459,7 +444,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Americano 400PSI',
-            'foto' => 'manometrop.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '60',
@@ -469,7 +453,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Argentino 2MPa',
-            'foto' => 'manometro_espanol.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '45',
@@ -479,7 +462,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro 27Bar',
-            'foto' => 'ManometroBar.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '50',
@@ -488,7 +470,6 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor Polvo/Espuma',
-            'foto' => 'manguera-extintor.jpg',
             'origen' => 'China',
             'descripcion' => 'Conexión a la manguera: rosca macho métrica ' .
                 'M-14 x 1,25 Presión de rotura: ≥60 bars (3 veces la presión' .
@@ -501,7 +482,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor CO2',
-            'foto' => '1545101362.jpg',
             'origen' => 'China',
             'descripcion' => 'Para el modelo de 2kg se puede utilizar' .
                 ' boquilla difusora o manguera corta de PVC. Para el modelo' .
@@ -514,7 +494,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras para Extintores de PQS',
-            'foto' => 'm2.png',
             'origen' => 'China',
             'descripcion' => 'Manguera para descarga de extintores portátiles' .
                 ' de polvo químico seco, su diámetro interior uniforme ' .
@@ -526,7 +505,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Americano 400PSI',
-            'foto' => 'manometrop.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '60',
@@ -536,7 +514,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Argentino 2MPa',
-            'foto' => 'manometro_espanol.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '45',
@@ -546,7 +523,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro 27Bar',
-            'foto' => 'ManometroBar.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '50',
@@ -555,7 +531,6 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor Polvo/Espuma',
-            'foto' => 'manguera-extintor.jpg',
             'origen' => 'China',
             'descripcion' => 'Conexión a la manguera: rosca macho métrica ' .
                 'M-14 x 1,25 Presión de rotura: ≥60 bars (3 veces la presión' .
@@ -568,7 +543,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor CO2',
-            'foto' => '1545101362.jpg',
             'origen' => 'China',
             'descripcion' => 'Para el modelo de 2kg se puede utilizar' .
                 ' boquilla difusora o manguera corta de PVC. Para el modelo' .
@@ -581,7 +555,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras para Extintores de PQS',
-            'foto' => 'm2.png',
             'origen' => 'China',
             'descripcion' => 'Manguera para descarga de extintores portátiles' .
                 ' de polvo químico seco, su diámetro interior uniforme ' .
@@ -593,7 +566,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Americano 400PSI',
-            'foto' => 'manometrop.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '60',
@@ -603,7 +575,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Argentino 2MPa',
-            'foto' => 'manometro_espanol.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '45',
@@ -613,7 +584,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro 27Bar',
-            'foto' => 'ManometroBar.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '50',
@@ -622,7 +592,6 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor Polvo/Espuma',
-            'foto' => 'manguera-extintor.jpg',
             'origen' => 'China',
             'descripcion' => 'Conexión a la manguera: rosca macho métrica ' .
                 'M-14 x 1,25 Presión de rotura: ≥60 bars (3 veces la presión' .
@@ -635,7 +604,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor CO2',
-            'foto' => '1545101362.jpg',
             'origen' => 'China',
             'descripcion' => 'Para el modelo de 2kg se puede utilizar' .
                 ' boquilla difusora o manguera corta de PVC. Para el modelo' .
@@ -648,7 +616,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras para Extintores de PQS',
-            'foto' => 'm2.png',
             'origen' => 'China',
             'descripcion' => 'Manguera para descarga de extintores portátiles' .
                 ' de polvo químico seco, su diámetro interior uniforme ' .
@@ -660,7 +627,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Americano 400PSI',
-            'foto' => 'manometrop.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '60',
@@ -670,7 +636,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Argentino 2MPa',
-            'foto' => 'manometro_espanol.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '45',
@@ -680,7 +645,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro 27Bar',
-            'foto' => 'ManometroBar.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '50',
@@ -688,7 +652,6 @@ class DatabaseSeeder extends Seeder
             'categoria_id' => 3,
         ]);DB::table('producto')->insert([
         'nombre' => 'Mangueras extintor Polvo/Espuma',
-        'foto' => 'manguera-extintor.jpg',
         'origen' => 'China',
         'descripcion' => 'Conexión a la manguera: rosca macho métrica ' .
             'M-14 x 1,25 Presión de rotura: ≥60 bars (3 veces la presión' .
@@ -701,7 +664,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor CO2',
-            'foto' => '1545101362.jpg',
             'origen' => 'China',
             'descripcion' => 'Para el modelo de 2kg se puede utilizar' .
                 ' boquilla difusora o manguera corta de PVC. Para el modelo' .
@@ -714,7 +676,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras para Extintores de PQS',
-            'foto' => 'm2.png',
             'origen' => 'China',
             'descripcion' => 'Manguera para descarga de extintores portátiles' .
                 ' de polvo químico seco, su diámetro interior uniforme ' .
@@ -726,7 +687,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Americano 400PSI',
-            'foto' => 'manometrop.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '60',
@@ -736,7 +696,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Argentino 2MPa',
-            'foto' => 'manometro_espanol.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '45',
@@ -746,7 +705,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro 27Bar',
-            'foto' => 'ManometroBar.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '50',
@@ -755,7 +713,6 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor Polvo/Espuma',
-            'foto' => 'manguera-extintor.jpg',
             'origen' => 'China',
             'descripcion' => 'Conexión a la manguera: rosca macho métrica ' .
                 'M-14 x 1,25 Presión de rotura: ≥60 bars (3 veces la presión' .
@@ -768,7 +725,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor CO2',
-            'foto' => '1545101362.jpg',
             'origen' => 'China',
             'descripcion' => 'Para el modelo de 2kg se puede utilizar' .
                 ' boquilla difusora o manguera corta de PVC. Para el modelo' .
@@ -781,7 +737,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras para Extintores de PQS',
-            'foto' => 'm2.png',
             'origen' => 'China',
             'descripcion' => 'Manguera para descarga de extintores portátiles' .
                 ' de polvo químico seco, su diámetro interior uniforme ' .
@@ -793,7 +748,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Americano 400PSI',
-            'foto' => 'manometrop.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '60',
@@ -803,7 +757,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Argentino 2MPa',
-            'foto' => 'manometro_espanol.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '45',
@@ -813,7 +766,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro 27Bar',
-            'foto' => 'ManometroBar.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '50',
@@ -822,7 +774,6 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor Polvo/Espuma',
-            'foto' => 'manguera-extintor.jpg',
             'origen' => 'China',
             'descripcion' => 'Conexión a la manguera: rosca macho métrica ' .
                 'M-14 x 1,25 Presión de rotura: ≥60 bars (3 veces la presión' .
@@ -835,7 +786,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras extintor CO2',
-            'foto' => '1545101362.jpg',
             'origen' => 'China',
             'descripcion' => 'Para el modelo de 2kg se puede utilizar' .
                 ' boquilla difusora o manguera corta de PVC. Para el modelo' .
@@ -848,7 +798,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Mangueras para Extintores de PQS',
-            'foto' => 'm2.png',
             'origen' => 'China',
             'descripcion' => 'Manguera para descarga de extintores portátiles' .
                 ' de polvo químico seco, su diámetro interior uniforme ' .
@@ -860,7 +809,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Americano 400PSI',
-            'foto' => 'manometrop.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '60',
@@ -870,7 +818,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro Argentino 2MPa',
-            'foto' => 'manometro_espanol.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '45',
@@ -880,7 +827,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('producto')->insert([
             'nombre' => 'Manometro 27Bar',
-            'foto' => 'ManometroBar.jpg',
             'origen' => 'China',
             'descripcion' => 'Manometro para extintor.',
             'precio' => '50',

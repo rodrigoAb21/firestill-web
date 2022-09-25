@@ -45,7 +45,7 @@
 <body>
 <div class="flex-center position-ref full-height">
     <div class="code">
-        Ups...!! :(
+        504 -  :(
     </div>
     <div>
         <a href="{{url('/')}}">

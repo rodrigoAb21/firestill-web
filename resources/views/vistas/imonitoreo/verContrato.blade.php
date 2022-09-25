@@ -22,12 +22,12 @@
                                 <div class="form-group">
                                     <label>Representante Firestill</label>
                                     <input readonly
-                                           value="{{$contrato->trabajador->nombre}}"
+                                           value="{{$contrato->trabajador->nombre. ' '.$contrato->trabajador->apellido}}"
                                            class="form-control"
                                            name="fecha_inicio">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Fecha inicio</label>
                                     <input readonly
@@ -37,7 +37,7 @@
                                            name="fecha_inicio">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Fecha fin</label>
                                     <input readonly
@@ -47,7 +47,7 @@
                                            name="fecha_fin">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Periodo (Mes)</label>
                                     <input readonly
@@ -55,12 +55,6 @@
                                            value="{{$contrato->periodo}}"
                                            class="form-control"
                                            name="periodo">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Documento</label><br>
-                                    <a class="btn btn-secondary btn-block" target="_blank" href="{{asset('contrato/'.$contrato->documento)}}">Ver</a>
                                 </div>
                             </div>
 

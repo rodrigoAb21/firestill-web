@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductoFormRequest;
 use App\Models\Categoria;
 use App\Models\Contador;
 use App\Models\Producto;
-
 use App\Utils\Utils;
 use Barryvdh\DomPDF\Facade as PDF;
-use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
     public function index(){
-
-
 
         return view('vistas.inventario.index',
             [
@@ -31,28 +28,20 @@ class ProductoController extends Controller
             ]);
     }
 
-    public function store(Request $request)
+    public function store(ProductoFormRequest $request)
     {
-        $this->validate($request, [
-            'nombre' => 'required|string|max:255',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,bmp,png',
-            'origen' => 'required|string',
-            'descripcion' => 'nullable|string|max:255',
-            'precio' => 'required|numeric|min:0',
-            'categoria_id' => 'required|numeric|min:1',
-        ]);
 
         $producto = new Producto();
         $producto->nombre = $request['nombre'];
-        $producto->foto = $request['foto'];
-        if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            $file->move(public_path() . '/img/productos/',
-                $file->getClientOriginalName());
-            $producto->foto = $file->getClientOriginalName();
-        }else{
-            $producto->foto = 'default.png';
-        }
+        /*        $producto->foto = $request['foto'];
+                if ($request->hasFile('foto')) {
+                    $file = $request->file('foto');
+                    $file->move(public_path() . '/img/productos/',
+                        $file->getClientOriginalName());
+                    $producto->foto = $file->getClientOriginalName();
+                }else{
+                    $producto->foto = 'default.png';
+        }*/
         $producto->origen=$request['origen'];
         $producto->descripcion = $request['descripcion'];
         $producto->cantidad = 0;
@@ -74,25 +63,17 @@ class ProductoController extends Controller
             ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductoFormRequest $request, $id)
     {
-        $this->validate($request, [
-            'nombre' => 'required|string|max:255',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,bmp,png',
-            'origen' => 'required|string',
-            'descripcion' => 'nullable|string|max:255',
-            'precio' => 'required|numeric|min:0',
-            'categoria_id' => 'required|numeric|min:1',
-        ]);
 
         $producto = Producto::findOrFail($id);
         $producto->nombre = $request['nombre'];
-        if ($request->hasFile('foto')) {
+/*        if ($request->hasFile('foto')) {
             $file = $request->file('foto');
             $file->move(public_path() . '/img/productos/',
                 $file->getClientOriginalName());
             $producto->foto = $file->getClientOriginalName();
-        }
+        }*/
         $producto->origen=$request['origen'];
         $producto->descripcion = $request['descripcion'];
         $producto->precio = $request['precio'];

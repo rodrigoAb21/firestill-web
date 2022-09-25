@@ -7,8 +7,6 @@ use App\Models\DetalleIngresoProducto;
 use App\Models\IngresoProducto;
 use App\Models\Producto;
 use App\Models\Proveedor;
-
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -54,14 +52,14 @@ class IngresoProductoController extends Controller
             $ingreso = new IngresoProducto();
             $ingreso->fecha = $request['fecha'];
             $ingreso->total = $request['total'];
-            if (Input::hasFile('foto_factura')) {
+/*            if (Input::hasFile('foto_factura')) {
                 $file = Input::file('foto_factura');
                 $file->move(public_path() . '/img/ingresoProducto/',
                     $file->getClientOriginalName());
                 $ingreso->foto_factura = $file->getClientOriginalName();
             }else{
                 $ingreso->foto_factura = 'default.png';
-            }
+            }*/
             $ingreso->nro_factura = $request['nro_factura'];
             $ingreso->proveedor_id = $request['proveedor_id'];
             $ingreso->save();
@@ -105,7 +103,7 @@ class IngresoProductoController extends Controller
 
         return view('vistas.inventario.ingresos.verIngreso', [
             'ingreso' => IngresoProducto::findOrFail($id),
-      
+
         ]);
     }
 

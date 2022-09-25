@@ -16,10 +16,10 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="POST" action="{{url('inventario')}}" autocomplete="off" enctype="multipart/form-data">
+                    <form method="POST" action="{{url('inventario')}}" autocomplete="off">
                         {{csrf_field()}}
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Nombre*</label>
                                     <input required
@@ -29,7 +29,7 @@
                                            name="nombre">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Precio Bs*</label>
                                     <input required
@@ -39,17 +39,7 @@
                                            name="precio">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Foto</label>
-                                    <input
-                                           type="file"
-                                           accept="image/*"
-                                           name="foto"
-                                           class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Categoría*</label>
                                     <select required name="categoria_id" class="form-control">
@@ -59,7 +49,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Origen*</label>
                                     <select required name="origen" class="form-control">

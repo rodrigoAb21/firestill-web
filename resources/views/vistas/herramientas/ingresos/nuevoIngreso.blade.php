@@ -30,7 +30,7 @@
                     <form method="POST" action="{{url('herramientas/guardarIngreso')}}" autocomplete="off" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Fecha*</label>
                                     <input required
@@ -40,17 +40,7 @@
                                            name="fecha">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Factura</label>
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        name="foto_factura"
-                                        class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Nro Factura</label>
                                     <input
@@ -60,7 +50,7 @@
                                         class="form-control">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Tienda*</label>
                                     <input required
@@ -97,7 +87,7 @@
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Costo Unitario</label>
+                                    <label>Costo U. (Bs)</label>
                                     <input
                                         class="form-control"
                                         title="Costo U. Bs"

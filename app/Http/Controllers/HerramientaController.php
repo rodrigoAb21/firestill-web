@@ -14,7 +14,7 @@ use App\Utils\Utils;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
+
 
 class HerramientaController extends Controller
 {
@@ -114,14 +114,14 @@ class HerramientaController extends Controller
             DB::beginTransaction();
             $ingreso = new IngresoHerramienta();
             $ingreso->fecha = $request['fecha'];
-            if ($request->hasFile('foto_factura')) {
+        /*    if ($request->hasFile('foto_factura')) {
                 $file = $request->file('foto_factura');
                 $file->move(public_path() . '/img/ingresoHerramienta/',
                     $file->getClientOriginalName());
                 $ingreso->foto_factura = $file->getClientOriginalName();
             }else{
                 $ingreso->foto_factura = 'default.png';
-            }
+            }*/
             $ingreso->nro_factura = $request['nro_factura'];
             $ingreso->tienda = $request['tienda'];
             $ingreso->total = $request['total'];

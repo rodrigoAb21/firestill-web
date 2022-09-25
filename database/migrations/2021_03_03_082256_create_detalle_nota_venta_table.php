@@ -33,6 +33,6 @@ class CreateDetalleNotaVentaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_venta');
+        Schema::dropIfExists('detalle_nota_venta');
     }
 }

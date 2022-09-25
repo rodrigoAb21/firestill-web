@@ -27,7 +27,7 @@ class IngresoHerramientaFormRequest extends FormRequest
             'fecha' => 'required|date',
             'tienda' => 'required|string|max:255',
             'nro_factura' => 'nullable|numeric|integer',
-            'foto_factura' => 'nullable|image|mimes:jpg,jpeg,bmp,png',
+//            'foto_factura' => 'nullable|image|mimes:jpg,jpeg,bmp,png',
             'total' => 'required|numeric|min:1',
             'idHerramientaT' => 'required|array|min:1',
             'idHerramientaT.*' => 'required|numeric|min:1',
@@ -43,7 +43,7 @@ class IngresoHerramientaFormRequest extends FormRequest
         return [
             'nro_factura.numeric' => 'El número de factura debe ser un número entero.',
             'nro_factura.integer' => 'El número de factura debe ser un número entero.',
-            'foto_factura.image' => 'El archivo de la factura debe ser una imágen válida.',
+//            'foto_factura.image' => 'El archivo de la factura debe ser una imágen válida.',
             'idHerramientaT.required' => 'Debe ingresar al menos una herramienta.',
             'idHerramientaT.*.numeric' => 'Seleccione una herramienta válida.',
             'cantidadT.required' => 'Debe ingresar al menos una cantidad.',

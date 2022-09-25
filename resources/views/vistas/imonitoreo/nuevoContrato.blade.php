@@ -40,7 +40,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Fecha inicio*</label>
                                     <input required
@@ -50,7 +50,7 @@
                                            name="fecha_inicio">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Fecha fin*</label>
                                     <input required
@@ -60,7 +60,7 @@
                                            name="fecha_fin">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Periodo (Mes)*</label>
                                     <input required
@@ -70,16 +70,6 @@
                                            name="periodo">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Documento</label>
-                                    <input
-                                            type="file"
-                                            class="form-control"
-                                            name="documento">
-                                </div>
-                            </div>
-
                         </div>
                         <a href="{{url('imonitoreo/listaContratos')}}" class="btn btn-warning">Atrás</a>
                         <button type="submit" class="btn btn-info">Guardar</button>
