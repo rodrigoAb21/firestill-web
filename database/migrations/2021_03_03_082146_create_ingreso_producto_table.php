@@ -20,7 +20,8 @@ class CreateIngresoProductoTable extends Migration
             $table->float('total');
 
             $table->unsignedInteger('proveedor_id');
-            $table->foreign('proveedor_id')->references('id')->on('proveedor');
+            $table->foreign('proveedor_id')->references('id')
+                ->on('proveedor')->onDelete('cascade');
         });
     }
 

@@ -31,13 +31,16 @@ class CreateEquipoTable extends Migration
 
 
             $table->unsignedInteger('sucursal_id');
-            $table->foreign('sucursal_id')->references('id')->on('sucursal');
+            $table->foreign('sucursal_id')->references('id')
+                ->on('sucursal')->onDelete('cascade');
 
             $table->unsignedInteger('tipo_clasificacion_id');
-            $table->foreign('tipo_clasificacion_id')->references('id')->on('tipo_clasificacion');
+            $table->foreign('tipo_clasificacion_id')->references('id')
+                ->on('tipo_clasificacion')->onDelete('cascade');
 
             $table->unsignedInteger('marca_clasificacion_id');
-            $table->foreign('marca_clasificacion_id')->references('id')->on('marca_clasificacion');
+            $table->foreign('marca_clasificacion_id')->references('id')
+                ->on('marca_clasificacion')->onDelete('cascade');
         });
     }
 

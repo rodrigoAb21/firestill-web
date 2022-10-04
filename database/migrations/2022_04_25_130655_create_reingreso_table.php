@@ -18,7 +18,8 @@ class CreateReingresoTable extends Migration
             $table->date('fecha');
 
             $table->unsignedInteger('asignacion_herramienta_id');
-            $table->foreign('asignacion_herramienta_id')->references('id')->on('asignacion_herramienta');
+            $table->foreign('asignacion_herramienta_id')->references('id')
+                ->on('asignacion_herramienta')->onDelete('cascade');
         });
     }
 

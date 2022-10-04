@@ -21,10 +21,12 @@ class CreateNotaVentaTable extends Migration
 
 
             $table->unsignedInteger('trabajador_id');
-            $table->foreign('trabajador_id')->references('id')->on('trabajador');
+            $table->foreign('trabajador_id')->references('id')
+                ->on('trabajador')->onDelete('cascade');
 
             $table->unsignedInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('cliente');
+            $table->foreign('cliente_id')->references('id')
+                ->on('cliente')->onDelete('cascade');
         });
     }
 

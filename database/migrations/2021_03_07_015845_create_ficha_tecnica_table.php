@@ -36,10 +36,12 @@ class CreateFichaTecnicaTable extends Migration
             $table->string('resultado');
 
             $table->unsignedInteger('trabajador_id');
-            $table->foreign('trabajador_id')->references('id')->on('trabajador');
+            $table->foreign('trabajador_id')->references('id')
+                ->on('trabajador')->onDelete('cascade');
 
             $table->unsignedInteger('equipo_id');
-            $table->foreign('equipo_id')->references('id')->on('equipo');
+            $table->foreign('equipo_id')->references('id')
+                ->on('equipo')->onDelete('cascade');
         });
     }
 

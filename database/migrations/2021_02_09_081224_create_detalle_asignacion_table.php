@@ -18,10 +18,12 @@ class CreateDetalleAsignacionTable extends Migration
             $table->unsignedInteger('cantidad');
 
             $table->unsignedInteger('asignacion_herramienta_id');
-            $table->foreign('asignacion_herramienta_id')->references('id')->on('asignacion_herramienta');
+            $table->foreign('asignacion_herramienta_id')->references('id')
+                ->on('asignacion_herramienta')->onDelete('cascade');
 
             $table->unsignedInteger('herramienta_id');
-            $table->foreign('herramienta_id')->references('id')->on('herramienta');
+            $table->foreign('herramienta_id')->references('id')
+                ->on('herramienta')->onDelete('cascade');
         });
     }
 

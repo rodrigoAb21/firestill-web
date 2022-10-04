@@ -19,10 +19,11 @@ class CreateProductoTable extends Migration
             $table->string('origen');
             $table->text('descripcion')->nullable();
             $table->float('precio');
-            $table->unsignedInteger('cantidad');
+            $table->float('cantidad');
 
             $table->unsignedInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categoria');
+            $table->foreign('categoria_id')->references('id')
+                ->on('categoria')->onDelete('cascade');
 
         });
     }

@@ -15,14 +15,16 @@ class CreateDetalleNotaVentaTable extends Migration
     {
         Schema::create('detalle_nota_venta', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cantidad');
+            $table->float('cantidad');
             $table->float('precio');
 
             $table->unsignedInteger('nota_venta_id');
-            $table->foreign('nota_venta_id')->references('id')->on('nota_venta');
+            $table->foreign('nota_venta_id')->references('id')
+                ->on('nota_venta')->onDelete('cascade');
 
             $table->unsignedInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('producto');
+            $table->foreign('producto_id')->references('id')
+                ->on('producto')->onDelete('cascade');
         });
     }
 

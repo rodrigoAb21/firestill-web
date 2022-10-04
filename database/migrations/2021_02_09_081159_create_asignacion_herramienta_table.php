@@ -20,7 +20,8 @@ class CreateAsignacionHerramientaTable extends Migration
             $table->string('estado');
 
             $table->unsignedInteger('trabajador_id');
-            $table->foreign('trabajador_id')->references('id')->on('trabajador');
+            $table->foreign('trabajador_id')->references('id')
+                ->on('trabajador')->onDelete('cascade');
         });
     }
 

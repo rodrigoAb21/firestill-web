@@ -19,7 +19,8 @@ class CreateSucursalTable extends Migration
             $table->string('direccion');
 
             $table->unsignedInteger('contrato_id');
-            $table->foreign('contrato_id')->references('id')->on('contrato');
+            $table->foreign('contrato_id')->references('id')->on('contrato')
+                ->onDelete('cascade');
         });
     }
 

@@ -16,13 +16,15 @@ class CreateDetalleIngresoProductoTable extends Migration
         Schema::create('detalle_ingreso_producto', function (Blueprint $table) {
             $table->increments('id');
             $table->float('costo');
-            $table->unsignedInteger('cantidad');
+            $table->float('cantidad');
 
             $table->unsignedInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('producto');
+            $table->foreign('producto_id')->references('id')
+                ->on('producto')->onDelete('cascade');
 
             $table->unsignedInteger('ingreso_producto_id');
-            $table->foreign('ingreso_producto_id')->references('id')->on('ingreso_producto');
+            $table->foreign('ingreso_producto_id')->references('id')
+                ->on('ingreso_producto')->onDelete('cascade');
         });
     }
 

@@ -19,10 +19,12 @@ class CreateDetalleReingresoTable extends Migration
             $table->string('motivo')->nullable();
 
             $table->unsignedInteger('herramienta_id');
-            $table->foreign('herramienta_id')->references('id')->on('herramienta');
+            $table->foreign('herramienta_id')->references('id')
+                ->on('herramienta')->onDelete('cascade');
 
             $table->unsignedInteger('reingreso_id');
-            $table->foreign('reingreso_id')->references('id')->on('reingreso');
+            $table->foreign('reingreso_id')->references('id')
+                ->on('reingreso')->onDelete('cascade');
         });
     }
 

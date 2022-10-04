@@ -16,11 +16,12 @@ class CreateBajaProductoTable extends Migration
         Schema::create('baja_producto', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha');
-            $table->integer('cantidad');
+            $table->float('cantidad');
             $table->string('motivo');
 
             $table->unsignedInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('producto');
+            $table->foreign('producto_id')->references('id')
+                ->on('producto')->onDelete('cascade');
         });
     }
 
