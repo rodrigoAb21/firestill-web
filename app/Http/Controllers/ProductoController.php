@@ -47,9 +47,13 @@ class ProductoController extends Controller
         $producto->cantidad = 0;
         $producto->precio = $request['precio'];
         $producto->categoria_id = $request['categoria_id'];
-        $producto->save();
+        if ($producto->save()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('inventario');
+        return redirect('inventario')->with(['message' => $mensaje]);
     }
 
     public function edit($id)
@@ -78,9 +82,13 @@ class ProductoController extends Controller
         $producto->descripcion = $request['descripcion'];
         $producto->precio = $request['precio'];
         $producto->categoria_id = $request['categoria_id'];
-        $producto->update();
+        if ($producto->update()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('inventario');
+        return redirect('inventario')->with(['message' => $mensaje]);
     }
 
     public function show($id)
@@ -95,9 +103,12 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         $producto = Producto::findOrFail($id);
-        $producto->delete();
-
-        return redirect('inventario');
+        if ($producto->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
+        return redirect('inventario')->with(['message' => $mensaje]);
     }
 
     public function reporte(){
@@ -106,7 +117,4 @@ class ProductoController extends Controller
         return $pdf->download('inventario_'.date('d-m-Y_H_i_s').'.pdf');
     }
 
-    public function  algo(){
-
-    }
 }

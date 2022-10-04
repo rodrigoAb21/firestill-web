@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContratoFormRequest;
 use App\Models\Cliente;
 use App\Models\Contrato;
 use App\Models\Trabajador;
-use Illuminate\Http\Request;
+use App\Utils\Utils;
 
 class ContratoController extends Controller
 {
@@ -35,15 +36,7 @@ class ContratoController extends Controller
         ]);
     }
 
-    public function guardarContrato(Request $request){
-        $this->validate($request, [
-            'fecha_inicio' => 'required|date',
-            'fecha_fin' => 'required|date',
-            'periodo' => 'required|numeric|min:1',
-            'cliente_id' => 'required|numeric|min:1',
-            'trabajador_id' => 'required|numeric|min:1',
-            'documento' => 'nullable|file|mimes:doc,docx,pdf,txt',
-        ]);
+    public function guardarContrato(ContratoFormRequest $request){
 
         $contrato = new Contrato();
         $contrato->fecha_inicio = $request['fecha_inicio'];
@@ -60,9 +53,13 @@ class ContratoController extends Controller
         }*/
         $contrato->cliente_id = $request['cliente_id'];
         $contrato->trabajador_id = $request['trabajador_id'];
-        $contrato->save();
+        if ($contrato->save()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('imonitoreo/listaContratos');
+        return redirect('imonitoreo/listaContratos')->with(['message' => $mensaje]);
     }
 
     public function verContrato($id){
@@ -81,15 +78,7 @@ class ContratoController extends Controller
         ]);
     }
 
-    public function actualizarContrato(Request $request, $id){
-        $this->validate($request, [
-            'fecha_inicio' => 'required|date',
-            'fecha_fin' => 'required|date',
-            'periodo' => 'required|numeric|min:1',
-            'cliente_id' => 'required|numeric|min:1',
-            'trabajador_id' => 'required|numeric|min:1',
-            'documento' => 'nullable|file|mimes:doc,docx,pdf,txt',
-        ]);
+    public function actualizarContrato(ContratoFormRequest $request, $id){
 
         $contrato = Contrato::findOrFail($id);
         $contrato->fecha_inicio = $request['fecha_inicio'];
@@ -102,23 +91,36 @@ class ContratoController extends Controller
         }*/
         $contrato->cliente_id = $request['cliente_id'];
         $contrato->trabajador_id = $request['trabajador_id'];
-        $contrato->update();
 
-        return redirect('imonitoreo/editarContrato/'.$id);
+        if ($contrato->update()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
+
+        return redirect('imonitoreo/editarContrato/'.$id)->with(['message' => $mensaje]);
     }
 
     public function eliminarContrato($id){
         $contrato = Contrato::findOrFail($id);
-        $contrato->delete();
+        if ($contrato->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('imonitoreo/listaContratos');
+        return redirect('imonitoreo/listaContratos')->with(['message' => $mensaje]);
     }
 
     public function finalizarEdicion($id){
         $contrato = Contrato::findOrFail($id);
         $contrato->edicion = false;
-        $contrato->update();
+        if ($contrato->update()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('imonitoreo/listaContratos');
+        return redirect('imonitoreo/listaContratos')->with(['message' => $mensaje]);
     }
 }

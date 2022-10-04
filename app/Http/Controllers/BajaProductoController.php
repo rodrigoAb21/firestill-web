@@ -6,6 +6,7 @@ use App\Models\BajaProducto;
 use App\Models\Contador;
 use App\Models\Producto;
 
+use App\Utils\Utils;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -41,12 +42,15 @@ class BajaProductoController extends Controller
         $baja->cantidad = $request['cantidad'];
         $baja->producto_id = $request['producto_id'];
         $baja->save();
-
         $producto = Producto::findOrFail($request['producto_id']);
         $producto->cantidad = $producto->cantidad - $baja->cantidad;
-        $producto->update();
+        if ($producto->update()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('inventario/listaBajas');
+        return redirect('inventario/listaBajas')->with(['mensaje' => $mensaje]);
     }
 
 
@@ -57,9 +61,12 @@ class BajaProductoController extends Controller
         $producto = Producto::withTrashed()->findOrFail($baja->producto_id);
         $producto->cantidad = $producto->cantidad + $baja->cantidad;
         $producto->update();
-        $baja->delete();
-
-        return redirect('inventario/listaBajas');
+        if ($baja->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
+        return redirect('inventario/listaBajas')->with(['mensaje' => $mensaje]);
     }
 
 

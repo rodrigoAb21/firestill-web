@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ServicioFormRequest;
 use App\Models\Cliente;
 use App\Models\DetalleNotaVenta;
 use App\Models\Trabajador;
@@ -9,8 +10,8 @@ use App\Models\NotaVenta;
 use App\Models\Producto;
 use App\Models\Servicio;
 
+use App\Utils\Utils;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ServicioController extends Controller
@@ -29,27 +30,8 @@ class ServicioController extends Controller
             'productos' => Producto::where('cantidad', '>', 0)->get(),
         ]);
     }
-    public function guardarServicio(Request $request)
+    public function guardarServicio(ServicioFormRequest $request)
     {
-        $this->validate($request, [
-            'fecha' => 'required|date',
-            'empleado_id' => 'nullable|numeric|min:0',
-            'cliente_id' => 'required|numeric|min:1',
-            'total' => 'required|numeric|min:0',
-
-            'idProductoT' => 'nullable|array|min:0',
-            'idProductoT.*' => 'nullable|numeric|min:1',
-            'cantidadT' => 'nullable|array|min:0',
-            'cantidadT.*' => 'nullable|numeric|min:1',
-            'precioT' => 'nullable|array|min:0',
-            'precioT.*' => 'nullable|numeric|min:0',
-
-            'nombresT' => 'required|array|min:1',
-            'nombresT.*' => 'required|string|max:255',
-            'preciosST' => 'required|array|min:1',
-            'preciosST.*' => 'required|numeric|min:0',
-        ]);
-
         try {
             DB::beginTransaction();
             $venta = new NotaVenta();
@@ -105,15 +87,16 @@ class ServicioController extends Controller
 
 
             DB::commit();
+            $mensaje = Utils::$OPERACION_EXISTOSA;
 
         } catch (QueryException $e) {
 
             DB::rollback();
-            return redirect('ventas/servicios')->with(['message' => 'No es posible realizar el servicio.']);
+            $mensaje = Utils::$OPERACION_EXISTOSA;
 
         }
 
-        return redirect('ventas/servicios');
+        return redirect('ventas/servicios')->with(['message' => $mensaje]);
 
     }
     public function verServicio($id)
@@ -130,8 +113,12 @@ class ServicioController extends Controller
             $producto->cantidad = $producto->cantidad + $detalle->cantidad;
             $producto->update();
         }
-        $venta->delete();
+        if ($venta->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('ventas/servicios');
+        return redirect('ventas/servicios')->with(['message' => $mensaje]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sucursal;
+use App\Utils\Utils;
 use Illuminate\Http\Request;
 
 class SucursalController extends Controller
@@ -19,9 +20,12 @@ class SucursalController extends Controller
         $sucursal->nombre = $request['nombre'];
         $sucursal->direccion = $request['direccion'];
         $sucursal->contrato_id = $request['contrato_id'];
-        $sucursal->save();
-
-        return redirect('imonitoreo/editarContrato/'.$request['contrato_id']);
+        if ($sucursal->save()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
+        return redirect('imonitoreo/editarContrato/'.$request['contrato_id'])->with(['message' => $mensaje]);
     }
 
     public function verSucursal($id){
@@ -44,16 +48,23 @@ class SucursalController extends Controller
         $sucursal = Sucursal::findOrFail($id);
         $sucursal->nombre = $request['nombre'];
         $sucursal->direccion = $request['direccion'];
-        $sucursal->update();
+        if ($sucursal->update()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('imonitoreo/editarSucursal/'.$id);
+        return redirect('imonitoreo/editarSucursal/'.$id)->with(['message' => $mensaje]);
     }
 
     public function eliminarSucursal($id){
         $sucursal = Sucursal::findOrFail($id);
         $contrato_id = $sucursal->contrato_id;
-        $sucursal->delete();
-
-        return redirect(('imonitoreo/editarContrato/'.$contrato_id));
+        if ($sucursal->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
+        return redirect(('imonitoreo/editarContrato/'.$contrato_id))->with(['message' => $mensaje]);
     }
 }

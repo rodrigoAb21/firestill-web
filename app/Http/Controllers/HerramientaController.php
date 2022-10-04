@@ -177,7 +177,7 @@ class HerramientaController extends Controller
             $ingreso = IngresoHerramienta::findOrFail($id);
             foreach ($ingreso->detalles as $detalle) {
                 $herramienta =
-                    Herramienta::withTrashed()->findOrFail($detalle->herramienta_id);
+                    Herramienta::findOrFail($detalle->herramienta_id);
                 $herramienta->cantidad_taller =
                     $herramienta->cantidad_taller - $detalle->cantidad;
                 $herramienta->cantidad_total =
@@ -276,7 +276,7 @@ class HerramientaController extends Controller
     public function anularBaja($id)
     {
         $baja  = BajaHerramienta::findOrFail($id);
-        $herramienta = Herramienta::withTrashed()->findOrFail($baja->herramienta_id);
+        $herramienta = Herramienta::findOrFail($baja->herramienta_id);
         $herramienta->cantidad_taller = $herramienta->cantidad_taller + $baja->cantidad;
         $herramienta->cantidad_total = $herramienta->cantidad_total + $baja->cantidad;
         if ($herramienta->update()){

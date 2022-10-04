@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VentaFormRequest;
 use App\Models\Cliente;
 use App\Models\DetalleNotaVenta;
 use App\Models\Trabajador;
 use App\Models\NotaVenta;
 use App\Models\Producto;
+use App\Utils\Utils;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class VentaController extends Controller
@@ -27,21 +28,8 @@ class VentaController extends Controller
             'productos' => Producto::where('cantidad', '>', 0)->get(),
         ]);
     }
-    public function guardarVenta(Request $request)
+    public function guardarVenta(VentaFormRequest $request)
     {
-        $this->validate($request, [
-            'fecha' => 'required|date',
-            'trabajador_id' => 'nullable|numeric|min:0',
-            'cliente_id' => 'required|numeric|min:1',
-            'total' => 'required|numeric|min:0',
-            'idProductoT' => 'required|array|min:1',
-            'idProductoT.*' => 'required|numeric|min:1',
-            'cantidadT' => 'required|array|min:1',
-            'cantidadT.*' => 'required|numeric|min:1',
-            'precioT' => 'required|array|min:1',
-            'precioT.*' => 'required|numeric|min:1',
-        ]);
-
         try {
             DB::beginTransaction();
             $venta = new NotaVenta();
@@ -75,15 +63,16 @@ class VentaController extends Controller
             }
 
             DB::commit();
+            $mensaje = Utils::$OPERACION_EXISTOSA;
 
         } catch (QueryException $e) {
 
             DB::rollback();
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
 
-            return redirect('ventas/ventas')->with(['message' => 'No es posible realizar la venta.']);
         }
 
-        return redirect('ventas/ventas');
+        return redirect('ventas/ventas')->with(['message' => $mensaje]);
 
     }
     public function verVenta($id)
@@ -100,8 +89,12 @@ class VentaController extends Controller
             $producto->cantidad = $producto->cantidad + $detalle->cantidad;
             $producto->update();
         }
-        $venta->delete();
+        if ($venta->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('ventas/ventas');
+        return redirect('ventas/ventas')->with(['message' => $mensaje]);
     }
 }

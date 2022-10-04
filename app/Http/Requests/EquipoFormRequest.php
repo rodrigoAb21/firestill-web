@@ -13,7 +13,7 @@ class EquipoFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class EquipoFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nro_serie' => 'required|numeric',
+            'descripcion' => 'nullable|string|max:255',
+            'ubicacion' => 'nullable|string|max:255',
+            'unidad_medida' => 'required|string|max:255',
+            'ano_fabricacion' => 'required|numeric|digits:4',
+            'capacidad' => 'required|numeric|min:1',
+            'sucursal_id' => 'required|numeric|min:1',
+            'tipo_clasificacion_id' => 'required|numeric|min:1',
+            'marca_clasificacion_id' => 'required|numeric|min:1',
         ];
     }
 }

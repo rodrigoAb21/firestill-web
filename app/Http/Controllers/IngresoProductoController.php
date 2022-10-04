@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\IngresoProductoFormRequest;
 use App\Models\Contador;
 use App\Models\DetalleIngresoProducto;
 use App\Models\IngresoProducto;
 use App\Models\Producto;
 use App\Models\Proveedor;
+use App\Utils\Utils;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
@@ -31,22 +32,8 @@ class IngresoProductoController extends Controller
         ]);
     }
 
-    public function guardarIngreso(Request $request)
+    public function guardarIngreso(IngresoProductoFormRequest $request)
     {
-        $this->validate($request, [
-            'fecha' => 'required|date',
-            'proveedor_id' => 'required|numeric|min:1',
-            'nro_factura' => 'nullable|numeric|min:0',
-            'foto_factura' => 'nullable|image|mimes:jpg,jpeg,bmp,png',
-            'total' => 'required|numeric|min:0',
-            'idProductoT' => 'required|array|min:1',
-            'idProductoT.*' => 'required|numeric|min:1',
-            'cantidadT' => 'required|array|min:1',
-            'cantidadT.*' => 'required|numeric|min:1',
-            'costoT' => 'required|array|min:1',
-            'costoT.*' => 'required|numeric|min:0',
-        ]);
-
         try {
             DB::beginTransaction();
             $ingreso = new IngresoProducto();
@@ -88,14 +75,15 @@ class IngresoProductoController extends Controller
             }
 
             DB::commit();
+            $mensaje = Utils::$OPERACION_EXISTOSA;
 
         } catch (Exception $e) {
 
             DB::rollback();
-
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
         }
 
-        return redirect('inventario/listaIngresos');
+        return redirect('inventario/listaIngresos')->with(['message' => $mensaje]);
     }
 
     public function verIngreso($id)
@@ -114,17 +102,21 @@ class IngresoProductoController extends Controller
             DB::beginTransaction();
             $ingreso = IngresoProducto::findOrFail($id);
             foreach ($ingreso->detalles as $detalle) {
-                $producto = Producto::withTrashed()->findOrFail($detalle->producto_id);
+                $producto = Producto::findOrFail($detalle->producto_id);
                 $producto->cantidad = $producto->cantidad - $detalle->cantidad;
                 $producto->update();
             }
             $ingreso->delete();
             DB::commit();
-            return redirect('inventario/listaIngresos');
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+
         }catch (QueryException $e) {
             DB::rollback();
-            return redirect('inventario/listaIngresos')->with(['message' => 'No es posible eliminar el ingreso']);
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+
         }
+
+        return redirect('inventario/listaIngresos')->with(['message' => $mensaje]);
 
     }
 }

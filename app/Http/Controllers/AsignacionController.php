@@ -91,7 +91,7 @@ class AsignacionController extends Controller
         if ($asignacion->estado == 'Activa'){
             foreach ($asignacion->detalles as $detalle) {
                 $herramienta =
-                    Herramienta::withTrashed()->findOrFail($detalle->herramienta_id);
+                    Herramienta::findOrFail($detalle->herramienta_id);
                 $herramienta->cantidad_asignada =
                     $herramienta->cantidad_asignada - $detalle->cantidad;
                 $herramienta->cantidad_taller =
@@ -144,7 +144,7 @@ class AsignacionController extends Controller
                 $detalle_reingreso->herramienta_id = $idHerramientas[$cont];
 
 
-                $herramienta = Herramienta::withTrashed()->findOrFail($idHerramientas[$cont]);
+                $herramienta = Herramienta::findOrFail($idHerramientas[$cont]);
                 $herramienta->cantidad_asignada = $herramienta->cantidad_asignada -  $cantA[$cont];
                 $herramienta->cantidad_taller = $herramienta->cantidad_taller + $cantR[$cont];
                 $cantidad =  $cantA[$cont] - $cantR[$cont];
@@ -173,7 +173,7 @@ class AsignacionController extends Controller
         } catch (QueryException $e) {
 
             DB::rollback();
-            $mensaje = Utils::$OPERACION_EXISTOSA;
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
 
         }
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EquipoFormRequest;
 use App\Models\Equipo;
 use App\Models\MarcaClasificacion;
 use App\Models\TipoClasificacion;
-use Illuminate\Http\Request;
+use App\Utils\Utils;
 use LaravelQRCode\Facades\QRCode;
 
 class EquipoController extends Controller
@@ -19,19 +20,7 @@ class EquipoController extends Controller
             'unidades' => Equipo::$UNIDAD_MEDIDA,
         ]);
     }
-    public function guardarEquipo(Request $request){
-        $this->validate($request, [
-            'nro_serie' => 'required|numeric',
-            'descripcion' => 'nullable|string|max:255',
-            'ubicacion' => 'nullable|string|max:255',
-            'unidad_medida' => 'required|string|max:255',
-            'ano_fabricacion' => 'required|numeric|digits:4',
-            'capacidad' => 'required|numeric|min:1',
-            'sucursal_id' => 'required|numeric|min:1',
-            'tipo_clasificacion_id' => 'required|numeric|min:1',
-            'marca_clasificacion_id' => 'required|numeric|min:1',
-        ]);
-
+    public function guardarEquipo(EquipoFormRequest $request){
         $equipo = new Equipo();
         $equipo->nro_serie = $request['nro_serie'];
         $equipo->descripcion = $request['descripcion'];
@@ -48,9 +37,12 @@ class EquipoController extends Controller
             $direccion = public_path('img/equipos/codigos/'.$equipo->id.'.png');
             $datos = $equipo->id;
             QRCode::text($datos)->setSize(8)->setOutfile($direccion)->png();
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
         }
 
-        return redirect('imonitoreo/editarSucursal/'.$request['sucursal_id']);
+        return redirect('imonitoreo/editarSucursal/'.$request['sucursal_id'])->with(['message' => $mensaje]);
     }
     public function verEquipo($id){
         return view('vistas.imonitoreo.verEquipo',[
@@ -68,17 +60,7 @@ class EquipoController extends Controller
             'unidades' => Equipo::$UNIDAD_MEDIDA,
         ]);
     }
-    public function actualizarEquipo(Request $request, $id){
-        $this->validate($request, [
-            'nro_serie' => 'required|numeric',
-            'descripcion' => 'nullable|string|max:255',
-            'ubicacion' => 'nullable|string|max:255',
-            'unidad_medida' => 'required|string|max:255',
-            'ano_fabricacion' => 'required|numeric|digits:4',
-            'capacidad' => 'required|numeric|min:1',
-            'tipo_clasificacion_id' => 'required|numeric|min:1',
-            'marca_clasificacion_id' => 'required|numeric|min:1',
-        ]);
+    public function actualizarEquipo(EquipoFormRequest $request, $id){
 
         $equipo = Equipo::findOrFail($id);
         $equipo->nro_serie = $request['nro_serie'];
@@ -89,18 +71,26 @@ class EquipoController extends Controller
         $equipo->capacidad = $request['capacidad'];
         $equipo->tipo_clasificacion_id = $request['tipo_clasificacion_id'];
         $equipo->marca_clasificacion_id = $request['marca_clasificacion_id'];
-        $equipo->save();
+        if ($equipo->update()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect('imonitoreo/editarSucursal/'.$equipo->sucursal_id);
+        return redirect('imonitoreo/editarSucursal/'.$equipo->sucursal_id)->with(['message' => $mensaje]);
     }
 
     public function eliminarEquipo($id){
 
         $equipo = Equipo::findOrFail($id);
         $sucursal_id = $equipo->sucursal_id;
-        $equipo->delete();
+        if ($equipo->delete()){
+            $mensaje = Utils::$OPERACION_EXISTOSA;
+        } else {
+            $mensaje = Utils::$OPERACION_NO_EXITOSA;
+        }
 
-        return redirect(('imonitoreo/editarSucursal/'.$sucursal_id));
+        return redirect(('imonitoreo/editarSucursal/'.$sucursal_id))->with(['message' => $mensaje]);
 
     }
 
