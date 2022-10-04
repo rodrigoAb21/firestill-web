@@ -19,7 +19,7 @@
                     <form method="POST" action="{{url('inventario/guardarIngreso')}}" autocomplete="off" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Fecha*</label>
                                     <input required
@@ -29,17 +29,7 @@
                                            name="fecha">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Factura</label>
-                                    <input
-                                            type="file"
-                                            accept="image/*"
-                                            name="foto_factura"
-                                            class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Nro Factura</label>
                                     <input
@@ -49,7 +39,7 @@
                                            class="form-control">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Proveedor*</label>
                                     <select required  name="proveedor_id" class="form-control">
@@ -76,13 +66,13 @@
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Cantidad</label>
-                                    <input class="form-control" placeholder="Cantidad" title="Cantidad" type="number" id="cantidad">
+                                    <input class="form-control" placeholder="Cantidad" title="Cantidad" step="any" type="number" id="cantidad">
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Costo U. (Bs)</label>
-                                    <input class="form-control" placeholder="Costo U." title="Costo U. BS" step="0.01" type="number" id="costo">
+                                    <input class="form-control" placeholder="Costo U." title="Costo U. BS" step="any" type="number" id="costo">
                                 </div>
                             </div>
                             <input name="total" hidden step="0.001" type="number" id="tt">
@@ -145,21 +135,24 @@
             var costo = 0;
             var total = 0;
             var subtotal = [];
+            var agregados = [];
 
             function agregar() {
                 cantidad = $('#cantidad').val();
                 costo = $('#costo').val();
-                if(cont>=0 && cantidad != null && cantidad > 0 && costo != null && costo > 0) {
+                idProducto = $('#selectorProducto').val();
+                nombreProducto = $('#selectorProducto option:selected').text();
+
+                if(!agregados.includes(idProducto) && cont>=0 && cantidad != null && cantidad > 0 && costo != null && costo > 0) {
                     subtotal[cont] = (cantidad * costo).toFixed(2);
+                    agregados.push(idProducto);
                     total = parseFloat(total) + parseFloat(subtotal[cont]);
                     total = parseFloat(total).toFixed(2);
 
-                    idProducto = $('#selectorProducto').val();
-                    nombreProducto = $('#selectorProducto option:selected').text();
                     var fila =
                         '<tr  class="text-center" id="fila' + cont + '">' +
                         '<td>' +
-                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar(' + cont + ');">' +
+                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar(' + cont + ',' + idProducto + ');">' +
                         '<i class="fa fa-times" aria-hidden="true"></i>' +
                         '</button>' +
                         '</td>' +
@@ -190,7 +183,12 @@
                 evaluar();
             }
 
-            function quitar(index){
+            function quitar(index, id){
+                let i = agregados.indexOf(String(id));
+                if (i > -1) {
+                    agregados.splice(i, 1);
+                }
+
                 total = total - subtotal[index];
                 $("#total").html(total);
                 $('#tt').val(total);

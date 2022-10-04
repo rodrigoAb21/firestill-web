@@ -32,7 +32,7 @@
 
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Fecha de asignacion</label>
+                                <label>Fecha de reingreso</label>
                                 <input readonly
                                        type="date"
                                        class="form-control"

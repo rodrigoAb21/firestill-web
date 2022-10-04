@@ -34,6 +34,7 @@
                                     <label>Cantidad*</label>
                                     <input required
                                            type="number"
+                                           step="any"
                                            class="form-control"
                                            value="{{ old('cantidad') }}"
                                            max="{{$producto->cantidad}}"

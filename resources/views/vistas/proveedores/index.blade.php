@@ -75,7 +75,7 @@
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
                 $('#modalEliminarTitulo').html("Eliminar");
-                $('#modalEliminarEnunciado').html("Realmente lo desea eliminar?");
+                $('#modalEliminarEnunciado').html("Realmente lo desea eliminar al proveedor: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 

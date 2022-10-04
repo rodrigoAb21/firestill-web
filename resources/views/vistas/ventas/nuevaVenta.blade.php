@@ -154,6 +154,7 @@
             var total = 0;
             var subtotal = [];
             var max;
+            var agregados = [];
 
             var datosProducto;
 
@@ -165,20 +166,22 @@
             $('#selectorProducto').change(mostrarPrecio);
 
             function agregar() {
-                cantidad = parseInt($('#cantidad').val());
+                cantidad = parseFloat($('#cantidad').val());
                 precio = parseFloat($('#precio').val()).toFixed(2);
+                idProducto = datosProducto[0];
+                nombreProducto = datosProducto[3];
 
-                if(cont>=0 && cantidad != null && cantidad > 0 && cantidad <= parseFloat(datosProducto[2]) && precio != null && precio > 0) {
+                if(!agregados.includes(idProducto) && cont>=0 && cantidad != null && cantidad > 0 && cantidad <= parseFloat(datosProducto[2]) && precio != null && precio > 0) {
+                    agregados.push(idProducto);
                     subtotal[cont] = (cantidad * precio).toFixed(2);
                     total = parseFloat(total) + parseFloat(subtotal[cont]);
                     total = parseFloat(total).toFixed(2);
 
-                    idProducto = datosProducto[0];
-                    nombreProducto = datosProducto[3];
+
                     var fila =
                         '<tr  class="text-center" id="fila' + cont + '">' +
                         '<td>' +
-                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar(' + cont + ');">' +
+                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar(' + cont + ',' + idProducto + ');">' +
                         '<i class="fa fa-times" aria-hidden="true"></i>' +
                         '</button>' +
                         '</td>' +
@@ -211,7 +214,12 @@
                 evaluar();
             }
 
-            function quitar(index){
+            function quitar(index, id){
+                let i = agregados.indexOf(String(id));
+                if (i > -1) {
+                    agregados.splice(i, 1);
+                }
+
                 total = total - subtotal[index];
                 $("#total").html(total);
                 $('#tt').val(total);

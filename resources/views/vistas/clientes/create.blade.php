@@ -106,7 +106,7 @@
                             <div class="form-group">
                                 <label>Email</label>
                                 <input
-                                        type="text"
+                                        type="email"
                                         class="form-control"
                                         value="{{ old('email_encargado') }}"
                                         name="email_encargado">

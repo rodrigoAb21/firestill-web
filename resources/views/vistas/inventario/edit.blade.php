@@ -44,6 +44,8 @@
                                     <label>Precio Bs*</label>
                                     <input required
                                            type="number"
+                                           min="0"
+                                           step="any"
                                            class="form-control"
                                            value="{{$producto->precio}}"
                                            name="precio">

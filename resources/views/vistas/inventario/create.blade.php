@@ -34,6 +34,8 @@
                                     <label>Precio Bs*</label>
                                     <input required
                                            type="number"
+                                           step="any"
+                                           min="0"
                                            class="form-control"
                                            value="{{ old('precio') }}"
                                            name="precio">
