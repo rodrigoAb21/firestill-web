@@ -24,6 +24,7 @@
                                 @foreach($fichas as $ficha)
                                     <tr class="text-center">
                                         <td>{{$ficha->id}}</td>
+                                        <td>{{date_format(date_create($ficha->fecha), 'd-M-Y')}}</td>
                                         <td>{{Carbon\Carbon::createFromFormat('Y-m-d', $ficha->fecha)->format('d-m-Y')}}</td>
                                         <td>{{$ficha->trabajador->nombre}} {{$ficha->trabajador->apellido}}</td>
                                         <td>{{$ficha->resultado}}</td>
