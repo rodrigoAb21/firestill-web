@@ -41,8 +41,8 @@
                                     <td>{{$contrato->id}}</td>
                                     <td>{{$contrato->cliente->nombre_empresa}}</td>
                                     <td>{{$contrato->estado}}</td>
-                                    <td>{{Carbon\Carbon::createFromFormat('Y-m-d', $contrato->fecha_inicio)->format('d - m - Y')}}</td>
-                                    <td>{{Carbon\Carbon::createFromFormat('Y-m-d', $contrato->fecha_fin)->format('d - m - Y')}}</td>
+                                    <td>{{date_format(date_create($contrato->fecha_inicio), 'd-M-Y')}}</td>
+                                    <td>{{date_format(date_create($contrato->fecha_fin), 'd-M-Y')}}</td>
                                     <td>
                                         @if($contrato->edicion)
 
