@@ -86,4 +86,10 @@
             </div>
         </div>
     </div>
+    @push('arriba')
+        <link rel="stylesheet" href="{{asset('plantilla/assets/plugins/select/bootstrap-select.min.css')}}">
+    @endpush
+    @push('scripts')
+        <script src="{{asset('plantilla/assets/plugins/select/bootstrap-select.min.js')}}"></script>
+    @endpush
 @endsection

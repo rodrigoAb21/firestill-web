@@ -204,7 +204,7 @@
         </div>
     </div>
     @push('arriba')
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="{{asset('plantilla/assets/plugins/select/bootstrap-select.min.css')}}">
     @endpush
     @push('scripts')
         <script>
@@ -365,6 +365,6 @@
 
 
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+        <script src="{{asset('plantilla/assets/plugins/select/bootstrap-select.min.js')}}"></script>
     @endpush
 @endsection

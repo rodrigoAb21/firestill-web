@@ -54,7 +54,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Origen*</label>
-                                    <select required name="origen" class="form-control">
+                                    <select required name="origen" class="form-control selectpicker" data-live-search="true" >
                                         @foreach($paises as $origen)
                                             <option value="{{$origen}}">{{$origen}}</option>
                                         @endforeach
@@ -75,4 +75,10 @@
             </div>
         </div>
     </div>
+    @push('arriba')
+        <link rel="stylesheet" href="{{asset('plantilla/assets/plugins/select/bootstrap-select.min.css')}}">
+    @endpush
+    @push('scripts')
+        <script src="{{asset('plantilla/assets/plugins/select/bootstrap-select.min.js')}}"></script>
+    @endpush
 @endsection
