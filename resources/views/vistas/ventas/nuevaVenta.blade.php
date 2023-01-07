@@ -171,7 +171,7 @@
                 idProducto = datosProducto[0];
                 nombreProducto = datosProducto[3];
 
-                if(!agregados.includes(idProducto) && cont>=0 && cantidad != null && cantidad > 0 && cantidad <= parseFloat(datosProducto[2]) && precio != null && precio > 0) {
+                if(!agregados.includes(idProducto) && cont>=0 && cantidad != null && cantidad >= 0 && cantidad <= parseFloat(datosProducto[2]) && precio != null && precio >= 0) {
                     agregados.push(idProducto);
                     subtotal[cont] = (cantidad * precio).toFixed(2);
                     total = parseFloat(total) + parseFloat(subtotal[cont]);
