@@ -109,7 +109,7 @@ class ServicioController extends Controller
     {
         $venta = NotaVenta::findOrFail($id);
         foreach ($venta->detalles as $detalle){
-            $producto = Producto::withTrashed()->findOrFail($detalle->producto_id);
+            $producto = Producto::findOrFail($detalle->producto_id);
             $producto->cantidad = $producto->cantidad + $detalle->cantidad;
             $producto->update();
         }

@@ -58,7 +58,7 @@ class BajaProductoController extends Controller
     {
 
         $baja = BajaProducto::findOrFail($id);
-        $producto = Producto::withTrashed()->findOrFail($baja->producto_id);
+        $producto = Producto::findOrFail($baja->producto_id);
         $producto->cantidad = $producto->cantidad + $baja->cantidad;
         $producto->update();
         if ($baja->delete()){

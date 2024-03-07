@@ -56,7 +56,11 @@
                                     <label>Categoría*</label>
                                     <select required name="categoria_id" class="form-control">
                                         @foreach($categorias as $categoria)
-                                            <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                            @if($categoria->id == $producto->categoria_id)
+                                                <option selected value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                            @else
+                                                <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
@@ -66,7 +70,11 @@
                                     <label>Origen*</label>
                                     <select required name="origen" class="form-control">
                                         @foreach($paises as $origen)
-                                            <option value="{{$origen}}">{{$origen}}</option>
+                                            @if($producto->origen == $origen)
+                                                <option selected value="{{$origen}}">{{$origen}}</option>
+                                            @else
+                                                <option value="{{$origen}}">{{$origen}}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
