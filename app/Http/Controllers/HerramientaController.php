@@ -11,7 +11,7 @@ use App\Models\Trabajador;
 use App\Models\Herramienta;
 use App\Models\IngresoHerramienta;
 use App\Utils\Utils;
-use Barryvdh\DomPDF\Facade as PDF;
+use \PDF;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 

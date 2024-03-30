@@ -7,7 +7,7 @@ use App\Models\Categoria;
 use App\Models\Contador;
 use App\Models\Producto;
 use App\Utils\Utils;
-use Barryvdh\DomPDF\Facade as PDF;
+use \PDF;
 
 class ProductoController extends Controller
 {
